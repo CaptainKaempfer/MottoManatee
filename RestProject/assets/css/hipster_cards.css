@@ -1,0 +1,86 @@
+
+#quotebox {
+  box-shadow: 3px 3px 35px 5px rgba(68,68,68,0.4);
+  width:40vw; 
+  border-radius:15px;
+   
+  margin:0 auto;
+  padding:20px;
+    background:rgba(235,94,40,0.7);;
+      position:relative;
+  }
+  #newquote { margin:0.3em 0.3em 0.3em 0.3em;  display:block;
+    position:absolute;right:0.5em;bottom:0.5em;}
+  #stil { margin-bottom:0.3em;  left: 40%; display:block;
+  position:absolute; bottom:0.5em;}
+  #twitter { margin:0.3em 0.3em 0.3em 0.3em;  display:block;
+  position:absolute;left:0.5em;bottom:0.5em;}
+  #author {font-size:1rem;
+    margin: 0 2em  3.5em 0em;
+    padding: 0em 0em 0em 15em;
+    color: #e9e9e9;
+        font-size: 14px;
+        display: inline-block;
+        font-size:1.21em;
+  }
+  #author:before {content:' -- ';}
+  #quote-section {
+    background:none; 
+    display:block;
+    min-height:50vh;
+    
+  
+  }
+  .quote {
+    font-family:Oswald;
+    margin: 2em 0 0 0em;
+    padding: 0em 2em 0em 2.5em;
+    position:relative;
+    font-style: italic;
+   color:white;
+   font-size:1.51em;
+    line-height:2.5em;
+      text-shadow: -1px 0 3px #2a185b;
+  }
+  .quote:first-letter { 
+    font-family: "Great Vibes";
+    font-size:2.51em;
+    letter-spacing:0.1em;
+  }
+  .quote:before
+   {
+    font-family:serif;
+    color: #ccc;
+    content: "\201C";
+    font-size: 5em;
+    position:absolute;
+    left:-3px;
+    top: 0.3em;
+    line-height: 0.1em;
+  }
+  
+  .quote:after
+   {
+    font-family:serif;
+    color: #ccc;
+    content: "\201D";
+    font-size: 5em;
+    position:absolute;
+    right:0em;
+    bottom: 0em;
+    line-height: 0.1em;
+  }
+  
+  #quoteoriginal {border:2px solid red; }
+  
+  @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+  }

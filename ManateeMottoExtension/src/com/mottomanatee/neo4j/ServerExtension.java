@@ -24,9 +24,12 @@ public class ServerExtension
         objectMapper.setVisibility(JsonMethod.FIELD, Visibility.ANY);
     }
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/users/new/")
+//	@POST
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Path("/users/new/")
 	
+	 @GET
+	 @Path("/{personName}")
+	 
 	
 }

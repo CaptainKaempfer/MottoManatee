@@ -1,0 +1,27 @@
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+repositories
+{
+	maven
+	{
+		url 'https://maven.fntgrp.com/artifactory/libs/'
+	}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext 
+{
+	neo4jVersion = '3.3.2'
+}
+
+dependencies
+{
+	compile "org.neo4j:neo4j:$neo4jVersion"
+	compile "org.neo4j.app:neo4j-server:$neo4jVersion"
+	
+	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version:'2.0'
+
+}

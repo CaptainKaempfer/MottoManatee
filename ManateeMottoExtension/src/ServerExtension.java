@@ -1,13 +1,14 @@
-package com.mottomanatee.neo4j;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
+import org.codehaus.jackson.annotate.JsonMethod;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.neo4j.graphdb.*;
 
@@ -30,9 +31,18 @@ public class ServerExtension {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("users/{nick}")
 	public Response findUserByNick(@PathParam("nick") String nick) throws Exception {
-		Node node = graphdb.getNodeById(1);
-		String str = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
-		return Response.ok(str, MediaType.APPLICATION_JSON).build();
+		Node node = graphdb.getNodeById(0);
+		String str = null;
+		try
+		{
+			str = this.objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
+			return Response.ok(str, MediaType.APPLICATION_JSON).build();
+		}
+		catch(Exception ex)
+		{
+			str = ex.getMessage();
+			return Response.ok(str,MediaType.APPLICATION_JSON).build();
+		}
 	}
-
+	
 }

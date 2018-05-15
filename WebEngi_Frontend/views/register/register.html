@@ -59,28 +59,78 @@
                         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
                             <div class="register-card">
                                 <h3 class="title">Bitte registrieren Sie sich</h3>
+
+
+                                
                                 <form class="register-form">
-                                    <!-- Name -->
-                                    <label>Vorname</label>
-                                    <input type="text" class="form-control" placeholder="Vorname">
-                                    <label>Nachname</label>
-                                    <input type="text" class="form-control" placeholder="Nachname">
-
-                                    <!-- Benutzername -->
-                                    <label>Benutzername</label>
-                                    <input type="text" class="form-control" placeholder="Benutzername">
-
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-
-                                    <label>Password best&auml;tigen</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-
+                                    <!-- Complete name -->
+                                    <div layout-gt-sm="row">
+                                            <!-- First name-->
+                                            <md-input-container class="md-block" flex-gt-sm="" style="color: #fff">
+                                              <label style="color: #fff">Vorname</label>
+                                              <input style="color: #fff" ng-model="user.firstName">
+                                            </md-input-container>
+                                            <!-- Second name -->
+                                            <md-input-container class="md-block" flex-gt-sm="">
+                                              <label style="color: #fff">Nachname</label>
+                                              <input style="color: #fff" ng-model="user.lastName">
+                                            </md-input-container>
+                                          </div>
+                                  
+                                          <!-- Username -->
+                                          <md-input-container class="md-block">
+                                              <label style="color: #fff">Benutzername</label>
+                                              <input style="color: #fff" ng-model="user.username">
+                                          </md-input-container>
+              
+                                          <!-- Adress -->
+                                          <md-input-container class="md-block">
+                                            <label style="color: #fff">Addresse</label>
+                                            <input style="color: #fff" ng-model="user.address">
+                                          </md-input-container>
+                                  
+                                          <!-- Adress information -->
+                                          <div layout-gt-sm="row">
+                                            <md-input-container class="md-block" flex-gt-sm="">
+                                              <label style="color: #fff">Stadt</label>
+                                              <input style="color: #fff" ng-model="user.city">
+                                            </md-input-container>
+                                  
+                                            <md-input-container class="md-block" flex-gt-sm="">
+                                              <label style="color: #fff">Bundesland</label>
+                                              <md-select ng-model="user.state">
+                                                <md-option ng-repeat="state in states"  value="{{state.abbrev}}">
+                                                  {{state.abbrev}}
+                                                </md-option>
+                                              </md-select>
+                                            </md-input-container>
+                                  
+                                            <md-input-container class="md-block" flex-gt-sm="">
+                                              <label style="color: #fff">Postleitzahl (PLZ)</label>
+                                              <input style="color: #fff" name="postalCode" ng-model="user.postalCode" placeholder="12345" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                                  
+                                              <div ng-messages="userForm.postalCode.$error" role="alert" multiple="">
+                                                <div ng-message="required" class="my-message">Bitte geben Sie ihre PLZ an.</div>
+                                                <div ng-message="pattern" class="my-message">Das sieht nicht wie eine gültige PLZ aus!
+                                                </div>
+                                              </div>
+                                            </md-input-container>
+                                          </div>
+              
+                                          <!-- Accept use of conditions -->
+                                          <md-input-container class="md-block">
+                                              <md-checkbox name="tos" ng-model="project.tos" required="">
+                                                Ich akzeptiere die Nutzerbedingungen und die Datenschutzerkl&auml;rung!
+                                              </md-checkbox>
+                                              <div ng-messages="projectForm.tos.$error" multiple="" md-auto-hide="false">
+                                                <div ng-message="required">
+                                                 Du musst zuerst die Nutzerbedingungen und die Datenschutzerkl&auml;rung best&auml;tigen, bevor du dich registrieren kannst!
+                                                </div>
+                                              </div>
+                                            </md-input-container>
                                     <button class="btn btn-danger btn-block">Registrieren</button>
                                 </form>
-                                <div class="forgot">
-                                    <a href="#" class="btn btn-simple btn-danger">Passwort vergessen?</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>

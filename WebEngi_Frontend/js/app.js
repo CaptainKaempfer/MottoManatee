@@ -17,37 +17,37 @@ angular.module('RESTClient', [
 	})
 	.when('/login',
 	{
-		/* Data Table for Result */
+		/* Login navigation point*/
 		templateUrl: 'views/login/login.html',
 		controller: 'MainCtrl'
 	})
 	.when('/register',
 	{
-		/* Data Table for Result */
+		/* Register navigation point */
 		templateUrl: 'views/register/register.html',
 		controller: 'MainCtrl'
 	})
 	.when('/law',
 	{
-		/* Data Table for Result */
+		/* Law navigation point */
 		templateUrl: 'views/law/dataProtection.html',
 		controller: 'MainCtrl'
 	})
 	.when('/show',
 	{
-		/* Data Table for Result */
+		/* Show mottos navigation point */
 		templateUrl: 'views/showMotto/showMotto.html',
-		controller: 'MainCtrl'
+		controller: 'ShowCtrl'
 	})
 	.when('/add',
 	{
-		/* Data Table for Result */
+		/* Add motto navigation point */
 		templateUrl: 'views/addMotto/addMotto.html',
 		controller: 'MainCtrl'
 	})
 	.when('/delete',
 	{
-		/* Data Table for Result */
+		/* Delete motto navigation point */
 		templateUrl: 'views/deleteMotto/deleteMotto.html',
 		controller: 'MainCtrl'
 	})
@@ -57,6 +57,7 @@ angular.module('RESTClient', [
 }])
 /* ---------- Controller ---------- */
 .controller('MainCtrl', MainCtrl)
+.controller('ShowCtrl', ShowCtrl)
 
 /* ---------- Service ---------- */
 .service('ModalService', ModalService)

@@ -38,6 +38,30 @@ function ModalService($uibModal)
 				size: null
 			});
 		},
+		/**
+		 * Displays a modal for successful registration
+		 * @param {string} message
+		 */
+		openRegisterModal: function (message) {
+			$uibModal.open({
+				animation: true,
+				templateUrl: 'views/dialog_templates/successDialog.tmp.html',
+				controller: ['$scope', '$modalInstance', function ($scope, $modalInstance) {
+
+					$scope.message = message;
+
+					/**
+					 * Dismisses the dialog
+					 */
+					$scope.close = function () {
+						$modalInstance.dismiss('Close');
+					};
+
+				
+				}],
+				size: null
+			});
+		},
 
 
 	// End	

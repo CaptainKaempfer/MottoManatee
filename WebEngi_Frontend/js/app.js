@@ -25,7 +25,7 @@ angular.module('RESTClient', [
 	{
 		/* Register navigation point */
 		templateUrl: 'views/register/register.html',
-		controller: 'MainCtrl'
+		controller: 'RegisterCtrl'
 	})
 	.when('/law',
 	{
@@ -58,7 +58,7 @@ angular.module('RESTClient', [
 /* ---------- Controller ---------- */
 .controller('MainCtrl', MainCtrl)
 .controller('ShowCtrl', ShowCtrl)
-
+.controller('RegisterCtrl', RegisterCtrl)
 /* ---------- Service ---------- */
 .service('ModalService', ModalService)
 .service('DataInterchangeService',DataInterchangeService)

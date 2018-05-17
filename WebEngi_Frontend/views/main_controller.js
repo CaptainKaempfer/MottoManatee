@@ -45,6 +45,10 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		});
 	};
 	
+	$scope.login = function () {
+		// FUnktion sign in reinkopieren
+	}
+	
 	///////////////////////////////// sign in an existing user ////////////////////////
 	
 	function signIn(){

@@ -51,12 +51,12 @@
                             <div class="register-card">
                                 <h3 class="title">Bitte loggen Sie sich ein</h3>
                                 <form class="register-form">
-                                    <label>Benutzername</label>
-                                    <input type="text" class="form-control" placeholder="Benutzername">
+                                    <label>E-Mail</label>
+                                    <input type="text" class="form-control" ng-modal="user.email" placeholder="E-Mail Adresse">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-                                    <button class="btn btn-danger btn-block">Log In</button>
+                                    <input type="password" class="form-control" ng-modal="user.password" placeholder="Password">
+                                    <button class="btn btn-danger btn-block" ng-click="login()">Log In</button>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-simple btn-danger">Passwort vergessen?</a>

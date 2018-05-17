@@ -35,9 +35,16 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 	/**
 	 * Opens a standard modal 
 	 */
-
-	$scope.post = function() {
-		ModalService.openLoginModel(function)
+	$scope.postMotto = function(user) {
+		var d = new Date();
+		$scope.Motto = {
+			mottotext: user.motto,
+			mottotitle: user.title,
+			mottodate: d,
+			mottouser: user.username
+		};
+		alert("Hier wird das Motto gepostet!");
+		/* Motto soll hier gepostet werden */
 	};
 
 	$scope.openLogin = function () {

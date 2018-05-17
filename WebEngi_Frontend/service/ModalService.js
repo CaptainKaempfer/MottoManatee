@@ -34,12 +34,6 @@ function ModalService($uibModal)
 					$scope.editMotto = function() {
 						alert("Motto kann zurzeit nicht bearbeitet werden!");
 					};
-					/**
-					 * Post the Motto
-					 */
-					$scope.postMotto = function() {
-						alert("Motto wird gepostet!");
-					};
 				}],
 				size: null
 			});

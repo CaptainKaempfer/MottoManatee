@@ -25,7 +25,7 @@ angular.module('RESTClient', [
 	{
 		/* Register navigation point */
 		templateUrl: 'views/register/register.html',
-		controller: 'RegisterCtrl'
+		controller: 'MainCtrl'
 	})
 	.when('/law',
 	{

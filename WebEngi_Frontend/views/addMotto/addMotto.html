@@ -58,11 +58,9 @@
     </div>
     
     <div class="main">
-        <div class="section section-nude" style="height: 340px;">
-            <div class="container">
-                <div class="row">
-            
-                    <div class="col-md-12 col-md-offset-0" style="height: 300px;">
+        <div class="section section-nude" style="height: 340px; background-color: white">
+            <div class="container" style="background-color: white">
+                <div class="col-md-6 col-md-offset-3" style="height: 300px;">
                 
                         <!-- Hier Quellcode hinzufügen -->
                         
@@ -73,6 +71,10 @@
                                             <label>Motto</label>
                                             <textarea rows="10" ng-model="user.motto" md-maxlength="150" ></textarea>
                                         </md-input-container>
+                                        <md-input-container class="md-block">
+                                            <label>Titel</label>
+                                            <textarea ng-model="user.title" md-maxlength="25"></textarea>
+                                        </md-input-container>
                                         <section layout="row" layout-align="center center" layout-sm="column" layout-wrap="">
                                             <button class="btn btn-default"  ng-click="openLogin()" >Motto posten</button>
                                         </section>
@@ -82,7 +84,6 @@
 
                         <!-- ENDE -->
 
-                    </div>
                 </div>
             </div>
         </div>

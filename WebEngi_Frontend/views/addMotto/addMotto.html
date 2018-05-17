@@ -53,48 +53,39 @@
     <div class="demo-header">
         <div class="motto">
             <h1 class="title-uppercase">Mottos hinzuf&uuml;gen</h1>
-            <h3>Hier kannst du dein lieblings Motte ganz einfach mit der Welt teilen!</h3>
+            <h3>Hier kannst du dein Lieblingsmotto ganz einfach mit der Welt teilen!</h3>
         </div>
     </div>
     
     <div class="main">
-        <div class="section section-nude">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="fixed-section">
-                    <ul>
-                        <li><a href="#buttons-row">Buttons</a></li>
-                        <li><a href="#checkbox-row">Checkbox/Radio</a></li>
-                        <li><a href="#dropdown-row">Dropdown</a></li>
-                        <li><a href="#inputs-row">Inputs</a></li>
-                        <li><a href="#textarea-row">Textarea</a></li>
-                        <li><a href="#navbar-row">Navigation</a></li>
-                        <li><a href="#subscription-row">Footers</a></li>
-                        <li><a href="#pagination-row">Pagination</a></li>
-                        <li><a href="#progressbar-row">Progress Bars</a></li>
-                        <li><a href="#sliders-row">Sliders</a></li>
-                        <li><a href="#labels-row">Labels</a></li>
-                        <li><a href="#datepicker-row">Datepicker</a></li>
-                        <li><a href="#modal-row">Modals</a></li>
-                        <li><a href="#tooltip-row">Tooltips/Popovers</a></li>
-                        <li><a href="#notification-row">Notification</a></li>
-        
-                    </ul>
+        <div class="section section-nude" style="height: 340px;">
+            <div class="container">
+                <div class="row">
+            
+                    <div class="col-md-12 col-md-offset-0" style="height: 300px;">
+                
+                        <!-- Hier Quellcode hinzufügen -->
+                        
+                            <md-content layout-padding="" >
+                                <div>
+                                    <form name="userForm">
+                                        <md-input-container class="md-block">
+                                            <label>Motto</label>
+                                            <textarea rows="10" ng-model="user.motto" md-maxlength="150" ></textarea>
+                                        </md-input-container>
+                                        <section layout="row" layout-align="center center" layout-sm="column" layout-wrap="">
+                                            <button class="btn btn-default"  ng-click="openLogin()" >Motto posten</button>
+                                        </section>
+                                    </form>
+                                </div>
+                            </md-content>
+
+                        <!-- ENDE -->
+
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8 col-md-offset-1">
-                
-                <!-- Hier Quellcode hinzufügen -->
-    
-                <button class="btn btn-default"  ng-click="openLogin()">Zeige detaillierte Infos zum Motto</button>
-    
-                <!-- ENDE -->
-
-            </div>
         </div>
-        </div>
-    </div>
     </div>
     
     

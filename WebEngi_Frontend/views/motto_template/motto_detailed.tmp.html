@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Motto Manatee - Motto detailiert</title>
+	<head>
+		<title>Motto Manatee - Motto detailiert</title>
 
-	<link href="assets/css/modal.css" rel="stylesheet"></link>
+		<link href="assets/css/modal.css" rel="stylesheet"></link>
 	</head>
 	<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-	<div class="modal-header" id="headerStyle">
-		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item active">Detailierte Ansicht des Mottos "Klang der Nacht" von Joschii</li>
-		</ol>
-		<!-- Modal heading -->
-        <!-- No modal heading set -->
-	</div>
-	<div class="modal-body">
-		<div class="col-12">
-			<div class="content-container">
-				<div class="content">
-				<!-- Start of modal content -->
-				<div class="view-frame">
-					<div class="container-fluid">
-						<div class="row">
+		<div class="modal-header" id="headerStyle">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active">Mottodetails</li>
+			</ol>
+			<!-- Modal heading -->
+        	<!-- No modal heading set -->
+		</div>
+		<div class="modal-body">
+			<div class="col-12">
+				<div class="content-container">
+					<div class="content">
+					<!-- Start of modal content -->
+						<div class="view-frame">
+							<div class="container-fluid">
+								<div class="row">
                                     
-                            <!-- Insert Code here -->
+                            		<!-- Insert Code here -->
+									Hier sollte das Motto stehen.
+									Zudem noch das Datum und der User der es gepostet hat
+									<section layout="row" layout-align="center center" layout-sm="column" layout-wrap="" style="height: 50px;">
+										Anzahl der Likes
+									</section>
+									<!-- END -->
 
-                            <!-- END -->
-
+								</div>
+							</div>		                    
 						</div>
-					</div>		                    
-				</div>
-				<!-- End of modal content -->
+					<!-- End of modal content -->
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<!-- Modal footer -->
     <div class="modal-footer">
-        <button class="btn btn-primary"  ng-click="editMotto()">Bearbeiten</button>
-		<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
+		<section layout="row" layout-align="center center" layout-sm="column" layout-wrap="" style="margin-top: 10px; margin-bottom: 10px;">
+			<md-button class="md-icon-button" ng-click="activateLike()">
+				<md-icon md-svg-icon="img/favorite.svg" ></md-icon>
+			</md-button>
+			<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
+		</section>
     </div>
 </body>
 </html>

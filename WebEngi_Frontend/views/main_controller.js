@@ -35,7 +35,11 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 	/**
 	 * Opens a standard modal 
 	 */
+	$scope.activateLike = function () {
+		alert( 'Hello, world!' );
+	};
 	$scope.openLogin = function () {
+		
 		ModalService.openLoginModel(function(){
 			$rootScope.isSessionCookie = true;
 		});

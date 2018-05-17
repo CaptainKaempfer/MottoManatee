@@ -36,6 +36,10 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 	 * Opens a standard modal 
 	 */
 
+	$scope.post = function() {
+		ModalService.openLoginModel(function)
+	};
+
 	$scope.openLogin = function () {
 		
 		ModalService.openLoginModel(function(){

@@ -68,7 +68,7 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 
 
 	//////////////////////////// register new user  /////////////////////////////
-	$scope.registration = function() {
+	$scope.registration = function(jsonObj /*JSON user object for the api call*/) {
       var email = $scope.user.email;
       var password = $scope.user.password;
       if (email.length < 4) {
@@ -95,7 +95,15 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         // [END_EXCLUDE]
       });
       // [END createwithemail]
+	  
+	  /* API call to register a new user*/
+	  var jsonString = JSON.stringify(jsonObj);
+	  var req = new XMLHttpRequest();
+	  req.open("PATCH", "https://mottomanatee.firebaseio.com/api/users.json", true);
+	  req.send(jsonString);
     }
+	
+	
 
 
 }

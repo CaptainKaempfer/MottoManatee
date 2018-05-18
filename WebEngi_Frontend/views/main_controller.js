@@ -56,7 +56,8 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
           if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
           } else {
-            alert(errorMessage);
+            //alert(errorMessage);
+			alert(email);
           }
           //console.log(error);
           //document.getElementById('quickstart-sign-in').disabled = false;

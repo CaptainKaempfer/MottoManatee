@@ -3,8 +3,8 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 {
 	////////////////////////////////// Variable Declaration /////////////////////////////
 
-	
-	
+
+
 	// Ranking
 	$scope.ranking = {
 		first: 'Maik Scherr',
@@ -28,7 +28,7 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		email: '',
 		password:''
 	};
-  
+
 	$scope.states = ('Baden-Württember Bayern Berlin Brandenburg Bremen Hamburg Hessen Mecklenburg-Vorpommern Niedersachsen ' +
 	'Nordrhein-Westfalen Rheinland-Pfalz Saarland Sachsen Sachsen-Anhalt Schleswig-Holstein ' +
 	'Thüringen').split(' ').map(function(state) {
@@ -61,10 +61,11 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
           //console.log(error);
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
+		});
 	}
-	
-	
-	
+
+
+
 	//////////////////////////// register new user  /////////////////////////////
 	$scope.registration = function() {
       var email = $scope.user.email;
@@ -94,6 +95,6 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
       });
       // [END createwithemail]
     }
-  
+
 
 }

@@ -44,14 +44,8 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 			$rootScope.isSessionCookie = true;
 		});
 	};
-	
+	//////////////////////////// Login
 	$scope.login = function () {
-		// FUnktion sign in reinkopieren
-	}
-	
-	///////////////////////////////// sign in an existing user ////////////////////////
-	
-	function signIn(){
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -67,11 +61,12 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
           //console.log(error);
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
-        });
 	}
 	
-	////////////////////////////////// register new user  /////////////////////////////
-	function handleSignUp() {
+	
+	
+	//////////////////////////// register new user  /////////////////////////////
+	$scope.registration = function() {
       var email = $scope.user.email;
       var password = $scope.user.password;
       if (email.length < 4) {

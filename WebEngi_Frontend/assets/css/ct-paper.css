@@ -1427,8 +1427,7 @@ textarea.form-control {
 .section {
   padding: 30px 0;
   position: relative;
-  background-color: #f4f3ef;
-  background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
+  background-color: #FFF;
 }
 
 .section-with-space {

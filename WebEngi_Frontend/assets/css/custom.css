@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 #wrapper {
     margin-left: auto;
     margin-right: auto;
@@ -18,8 +17,6 @@
     padding: 1em;
     width: 100%;
 }
-
-
 
 /*** LIST ***/
 ol.podium-rank {
@@ -140,8 +137,6 @@ ol.podium-rank > li .content * {
     margin: 0.25em 0 0 0;
 }
 
-
-
 /*** MEDIA QUERIES ***/
 @media only screen and ( max-width: 50em ) {
 
@@ -154,4 +149,65 @@ ol.podium-rank > li .content * {
         order: 1!important;
     }
 
+}
+
+/* Motto Liste */
+.post-title {
+    font-size: 30px;
+    color: #000;
+}
+
+.post-title:hover {
+    color: #ff8f5e;
+}
+
+.post-subtitle {
+    font-size: 18px;
+    color: #000;
+}
+
+.post-subtitle:hover {
+    color: #ff8f5e;
+}
+
+.post-meta {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+}
+
+.post-meta a {
+    color: #1a1817;
+}
+
+.post-meta a:hover {
+    color: #0085a1;
+}
+
+.post-detail {
+    background: #ff8f5e ;
+    opacity: 0.9;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 10px;
+    padding: 8px;
+    color: #fff;
+}
+
+#btn-def {
+    border-color: #fff;
+    color: #fff;
+}
+
+#btn-def:hover {
+    border-color: #fff;
+    background-color: #fff;
+    color: #1a1817;
+}
+
+#btn-def::after {
+    border-color: #1a1817;
+    color: #1a1817;
+    background-color: #fff;
 }

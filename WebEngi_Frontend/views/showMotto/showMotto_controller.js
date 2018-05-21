@@ -124,6 +124,13 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         }
     };
 
+    $scope.moreFunction = function () {
+		
+		ModalService.openLoginModel(function(){
+			$rootScope.isSessionCookie = true;
+		});
+	};
+
     $scope.getMottoContent = function() {
         $scope.showMotto = {
             contentMotto0: 'Zünde lieber eine Kerze an, statt über die Dunkelheit zu meckern', autorMotto0: 'Unbekannt',

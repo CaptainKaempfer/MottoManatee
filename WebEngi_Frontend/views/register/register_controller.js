@@ -28,7 +28,7 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 	/**
 	 * Opens a standard modal 
 	 */
-	$scope.openRegister = function (jsonObj /*JSON user object*/) {
+	$scope.openRegister = function (jsonObj) {
 
 		// Additional simple form validation
 		if($scope.user.firstName == '')
@@ -74,10 +74,10 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 
 		// Save data in firebase database
 
-		//REST call to register a new user
+		//API call to register a new user
 		var jsonString = JSON.stringify(jsonObj);
 		var req = new XMLHttpRequest();
-		req.open("PATCH", "https://mottomanatee.firebaseio.com/api/users" + ".json", true);
+		req.open("PATCH", "https://mottomanatee.firebaseio.com/api/users.json", true);
 		req.send(jsonString);
 
 		// Open user respond dialog

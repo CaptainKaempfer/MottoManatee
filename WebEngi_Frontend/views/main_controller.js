@@ -37,10 +37,14 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		});
 	};
 
-	$scope.openDelete = function () {
+	$scope.openDelete = function (mottoID) {
 		ModalService.openDeleteModal(function(){
 			$rootScope.isSessionCookie = true;
 		});
+		
+		var req = new XMLHttpRequest();
+		req.open("DELETE", "https://mottomanatee.firebaseio.com/api/mottos/" + mottoID + ".json", true);
+		req.send();
 	};
 
 	//

@@ -7,12 +7,7 @@
 	</head>
 	<body class="fixed-nav sticky-footer bg-dark" id="page-top">
 		<div class="modal-header" id="headerStyle">
-			<!-- Breadcrumbs-->
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item active">Mottodetails</li>
-			</ol>
-			<!-- Modal heading -->
-        	<!-- No modal heading set -->
+			Mottodetails
 		</div>
 		<div class="modal-body">
 			<div class="col-12">
@@ -26,13 +21,13 @@
                             		<!-- Insert Code here -->
 									Hier sollte das Motto stehen.
 									Zudem noch das Datum und der User der es gepostet hat
-									<section layout="row" layout-align="center center" layout-sm="column" layout-wrap="" style="height: 50px;">
-										Anzahl der Likes
-									</section>
 									<!-- END -->
 
 								</div>
-							</div>		                    
+							</div>
+							<div class="breadcrumb">
+								<i class="fa fa-heart" aria-hidden="true"></i> {{}}
+							</div>	                    
 						</div>
 					<!-- End of modal content -->
 					</div>
@@ -41,12 +36,24 @@
 		</div>
 	<!-- Modal footer -->
     <div class="modal-footer">
-		<section layout="row" layout-align="center center" layout-sm="column" layout-wrap="" style="margin-top: 10px; margin-bottom: 10px;">
-			<md-button class="md-icon-button" ng-click="activateLike()">
-				<md-icon md-svg-icon="img/favorite.svg" ></md-icon>
-			</md-button>
-			<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
-		</section>
+		
+		<md-card-actions layout="row" layout-align="end center" class="uiCard">
+			<!-- Buttons -->
+			<div class="like-content">
+			  	<button class="btn-secondary like-review" ng-click="likeFunction(7)">
+					<i class="{{showAction.likeIcon}}" aria-hidden="true"></i> {{showAction.likeText}}
+			  	</button>
+		  	</div>
+		  	<div class="share-content">
+			  	<button class="btn-secondary share-review" ng-click="shareFunction(7)">
+					<i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText}}
+			  	</button>
+		  	</div>
+		  	<div class="more-content">
+				<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
+			</div>
+		  <!-- End of buttons -->
+		  </md-card-actions>
     </div>
 </body>
 </html>

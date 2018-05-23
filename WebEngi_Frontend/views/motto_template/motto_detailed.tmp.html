@@ -18,15 +18,23 @@
 							<div class="container-fluid">
 								<div class="row">
                                     
-                            		<!-- Insert Code here -->
-									Hier sollte das Motto stehen.
-									Zudem noch das Datum und der User der es gepostet hat
+									<!-- Insert Code here -->
+									Autor: {{Mottodetails.Autor}} <br>
+									Titel: {{Mottodetails.title}}
 									<!-- END -->
 
 								</div>
 							</div>
-							<div class="breadcrumb">
-								<i class="fa fa-heart" aria-hidden="true"></i> {{}}
+							<div class="breadcrumb" layout="row">
+								<div class="share-content">
+									<i class="fa fa-heart" aria-hidden="true"></i> {{currentLikes}}
+								</div>
+								<div class="share-content">
+									<i class="fa fa-share" aria-hidden="true"></i> {{currentShares}}
+								</div>
+								<div class="share-content">
+									{{postDate}}
+								</div>
 							</div>	                    
 						</div>
 					<!-- End of modal content -->

@@ -53,6 +53,6 @@ function MainCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 			$rootScope.isSessionCookie = true;
 		});
 	};
-  
+
 
 }

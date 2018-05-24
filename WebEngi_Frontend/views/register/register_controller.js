@@ -79,6 +79,8 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 		ModalService.openRegisterModal(function(){
 			$rootScope.isSessionCookie = true;
 		});
+
+		alert("Hallo");
 	};
   
 

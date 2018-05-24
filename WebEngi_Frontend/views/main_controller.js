@@ -31,11 +31,25 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	/**
 	 * Opens a standard modal 
 	 */
+	$scope.postMotto = function(user) {
+		var d = new Date();
+		$scope.Motto = {
+			mottotext: user.motto,
+			mottotitle: user.title,
+			mottodate: d,
+			mottouser: user.username
+		};
+		alert("Hier wird das Motto gepostet!");
+		/* Motto soll hier gepostet werden */
+	};
+
 	$scope.openLogin = function () {
+		
 		ModalService.openLoginModel(function(){
 			$rootScope.isSessionCookie = true;
 		});
 	};
+
 
 	$scope.openDelete = function (mottoID) {
 		ModalService.openDeleteModal(function(){
@@ -97,6 +111,59 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			console.log("User is logged in!");
 		}
 	};
-  
+	
+	//////////////////////////// Login
+	$scope.login = function () {
+		var email = $scope.user.email;
+		var password = $scope.user.password;
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            //alert(errorMessage);
+			alert(email);
+          }
+          //console.log(error);
+          //document.getElementById('quickstart-sign-in').disabled = false;
+          // [END_EXCLUDE]
+		});
+	}
+
+
+
+	//////////////////////////// register new user  /////////////////////////////
+	$scope.registration = function() {
+      var email = $scope.user.email;
+      var password = $scope.user.password;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {     
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+      // [END createwithemail]
+    }
+
 
 }

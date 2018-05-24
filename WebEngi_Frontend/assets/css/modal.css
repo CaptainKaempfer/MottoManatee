@@ -171,9 +171,10 @@ body {
     padding: 8px 15px;
     margin: 0px 0px 20px 10px;
     list-style: none;
-	background-color: #fff;
-	color: #ff8f5e;
-	border-radius: 4px;
+	background-color: #293133;
+	color: #fff;
+    border-radius: 4px;
+    opacity: 0.4;
 	margin: 20px 5px 20px 0px;
 }
 ul, ol {
@@ -204,7 +205,10 @@ ul, ol {
 	margin: 0;
 	width:100%;
     float: left;
-    padding: 0px 10px 0px 10px;
+    height: 80px;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 15px 10px 15px 10px;
 }
 
 .modal-header {

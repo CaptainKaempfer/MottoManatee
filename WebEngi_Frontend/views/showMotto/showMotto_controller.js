@@ -124,6 +124,13 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         }
     };
 
+    $scope.moreFunction = function () {
+		
+		ModalService.openLoginModel(function(){
+			$rootScope.isSessionCookie = true;
+		});
+	};
+
     $scope.getMottoContent = function() {
         $scope.showMotto = {
             contentMotto0: 'Zünde lieber eine Kerze an, statt über die Dunkelheit zu meckern', autorMotto0: 'Unbekannt',
@@ -137,6 +144,28 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
             contentMotto8: 'Ende Gut alles Gut', autorMotto8: 'Unbekannt',
             contentMotto9: 'Alles hat ein Ende nur die Wurst hat zwei', autorMotto9: 'Unbekannt',
         };
+		
+		//get JSON motto data
+		var callback = function(result){ //result is a JSON object with the 11 newest mottos
+			//console.log(JSON.stringify(result));
+			//parse the JSON in here
+		}
+		getMottoData(callback);
     };
+	
+	function getMottoData(callback){
+		var req = new XMLHttpRequest();
+		req.open("GET", 'https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="timestamp"&limitToLast=11', true); // 11 newest mottos
+		
+		req.onload = function () {
+			if (req.readyState == 4 && req.status == "200") {
+				var responseObj = JSON.parse(req.responseText); //JSON object erstellen und zurückgeben
+				callback(responseObj);
+			}
+		}
+		
+		req.send();
+	}
+	
 
 }

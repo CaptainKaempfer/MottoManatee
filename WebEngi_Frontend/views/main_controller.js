@@ -31,16 +31,34 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	/**
 	 * Opens a standard modal 
 	 */
+	$scope.postMotto = function(user) {
+		var d = new Date();
+		$scope.Motto = {
+			mottotext: user.motto,
+			mottotitle: user.title,
+			mottodate: d,
+			mottouser: user.username
+		};
+		alert("Hier wird das Motto gepostet!");
+		/* Motto soll hier gepostet werden */
+	};
+
 	$scope.openLogin = function () {
+		
 		ModalService.openLoginModel(function(){
 			$rootScope.isSessionCookie = true;
 		});
 	};
 
-	$scope.openDelete = function () {
+
+	$scope.openDelete = function (mottoID) {
 		ModalService.openDeleteModal(function(){
 			$rootScope.isSessionCookie = true;
 		});
+		
+		var req = new XMLHttpRequest();
+		req.open("DELETE", "https://mottomanatee.firebaseio.com/api/mottos/" + mottoID + ".json", true);
+		req.send();
 	};
 
 	//
@@ -93,6 +111,6 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			console.log("User is logged in!");
 		}
 	};
-  
+
 
 }

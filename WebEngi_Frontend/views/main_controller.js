@@ -156,7 +156,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
         // [START_EXCLUDE]
         if (errorCode == 'auth/weak-password') {
           alert('The password is too weak.');
-        } else {
+        } else {     
           alert(errorMessage);
         }
         console.log(error);

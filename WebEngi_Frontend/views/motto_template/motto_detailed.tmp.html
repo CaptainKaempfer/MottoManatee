@@ -1,44 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Motto Manatee - Motto detailiert</title>
+	<head>
+		<title>Motto Manatee - Motto detailiert</title>
 
-	<link href="assets/css/modal.css" rel="stylesheet"></link>
+		<link href="assets/css/modal.css" rel="stylesheet"></link>
 	</head>
 	<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-	<div class="modal-header" id="headerStyle">
-		<!-- Breadcrumbs-->
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item active">Detailierte Ansicht des Mottos "Klang der Nacht" von Joschii</li>
-		</ol>
-		<!-- Modal heading -->
-        <!-- No modal heading set -->
-	</div>
-	<div class="modal-body">
-		<div class="col-12">
-			<div class="content-container">
-				<div class="content">
-				<!-- Start of modal content -->
-				<div class="view-frame">
-					<div class="container-fluid">
-						<div class="row">
+		<div class="modal-header" id="headerStyle">
+			Mottodetails
+		</div>
+		<div class="modal-body">
+			<div class="col-12">
+				<div class="content-container">
+					<div class="content">
+					<!-- Start of modal content -->
+						<div class="view-frame">
+							<div class="container-fluid">
+								<div class="row">
                                     
-                            <!-- Insert Code here -->
+									<!-- Insert Code here -->
+									Autor: {{Mottodetails.Autor}} <br>
+									Titel: {{Mottodetails.title}}
+									<!-- END -->
 
-                            <!-- END -->
-
+								</div>
+							</div>
+							<div class="breadcrumb" layout="row">
+								<div class="share-content">
+									<i class="fa fa-heart" aria-hidden="true"></i> {{currentLikes}}
+								</div>
+								<div class="share-content">
+									<i class="fa fa-share" aria-hidden="true"></i> {{currentShares}}
+								</div>
+								<div class="share-content">
+									{{postDate}}
+								</div>
+							</div>	                    
 						</div>
-					</div>		                    
-				</div>
-				<!-- End of modal content -->
+					<!-- End of modal content -->
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<!-- Modal footer -->
     <div class="modal-footer">
-        <button class="btn btn-primary"  ng-click="editMotto()">Bearbeiten</button>
-		<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
+		
+		<md-card-actions layout="row" layout-align="end center" class="uiCard">
+			<!-- Buttons -->
+			<div class="like-content">
+			  	<button class="btn-secondary like-review" ng-click="likeFunction(7)">
+					<i class="{{showAction.likeIcon}}" aria-hidden="true"></i> {{showAction.likeText}}
+			  	</button>
+		  	</div>
+		  	<div class="share-content">
+			  	<button class="btn-secondary share-review" ng-click="shareFunction(7)">
+					<i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText}}
+			  	</button>
+		  	</div>
+		  	<div class="more-content">
+				<button class="btn btn-warning"  ng-click="close()">Abbrechen</button>
+			</div>
+		  <!-- End of buttons -->
+		  </md-card-actions>
     </div>
 </body>
 </html>

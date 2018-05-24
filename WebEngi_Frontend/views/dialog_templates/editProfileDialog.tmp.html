@@ -1,0 +1,36 @@
+<head>
+    <title>Profil bearbeiten - Dialog</title>
+
+    <link href="assets/css/modal.tmp.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="modal-header-delete" id="headerStyle">
+        <h3>{{editType}} bearbeiten</h3>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="font-size: 18px;">Bitte geben Sie den neuen Wert ein: 
+                        <i class="material-icons" style="font-size:24px; color: #ff8f5e">edit</i>
+                    </p><br>
+                    <p>
+                        <form class="register-form">
+                            <!-- New Value -->
+                            <md-input-container class="md-block">
+                                <label style="color: #ff8f5e">Neuer Wert</label>
+                                <input style="color: #a09993" ng-model="newValue">
+                            </md-input-container>
+                        </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-simple">{{editType}} bearbeiten</button>   
+        <button ng-click="close()" class="btn btn-primary btn-simple" style="margin: 10px 5px 5px 5px;">Abbrechen</button>
+    </div>
+</body>
+    

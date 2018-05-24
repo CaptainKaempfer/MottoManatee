@@ -4,7 +4,7 @@ angular.module('RESTClient', [
 	'ngMaterial',
 	'ui.date',
 	'ngAnimate',
-	'ngCookies'
+	'ngCookies',
 ])
 .config(['$routeProvider', function($routeProvider) 
 {
@@ -25,7 +25,7 @@ angular.module('RESTClient', [
 	{
 		/* Register navigation point */
 		templateUrl: 'views/register/register.html',
-		controller: 'MainCtrl'
+		controller: 'RegisterCtrl'
 	})
 	.when('/law',
 	{
@@ -48,7 +48,7 @@ angular.module('RESTClient', [
 	.when('/delete',
 	{
 		/* Delete motto navigation point */
-		templateUrl: 'views/deleteMotto/deleteMotto.html',
+		templateUrl: 'views/editMotto/editMotto.html',
 		controller: 'MainCtrl'
 	})
 	.otherwise({
@@ -62,6 +62,8 @@ angular.module('RESTClient', [
 /* ---------- Service ---------- */
 .service('ModalService', ModalService)
 .service('DataInterchangeService',DataInterchangeService)
+/* ---------- Directuve ---------- */
+.directive('regularCard', regularCard)
 
 var restServerURL = null;
 

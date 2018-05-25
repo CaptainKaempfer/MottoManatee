@@ -35,14 +35,14 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		$scope.Motto = {
 			"text": user.motto,
 			"title": user.title,
-			".sv": "timestamp",
+			"timestamp": {".sv": "timestamp"},
             "user": user.username,
             "land": user.country
 		};
 		
         var jsonString = JSON.stringify($scope.Motto);
 	    var req = new XMLHttpRequest();
-        req.open("POST", "https://mottomanatee.firebaseio.com/api/mottos" + ".json", true);
+        req.open("POST", "https://mottomanatee.firebaseio.com/api/mottos.json", true);
         req.send(jsonString);
 	};
 

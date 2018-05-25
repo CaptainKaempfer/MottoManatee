@@ -32,15 +32,18 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	 * Opens a standard modal 
 	 */
 	$scope.postMotto = function(user) {
-		var d = new Date();
 		$scope.Motto = {
-			mottotext: user.motto,
-			mottotitle: user.title,
-			mottodate: d,
-			mottouser: user.username
+			"text": user.motto,
+			"title": user.title,
+			"timestamp": {".sv": "timestamp"},
+            "user": user.username,
+            "land": user.country
 		};
-		alert("Hier wird das Motto gepostet!");
-		/* Motto soll hier gepostet werden */
+		
+        var jsonString = JSON.stringify($scope.Motto);
+	    var req = new XMLHttpRequest();
+        req.open("POST", "https://mottomanatee.firebaseio.com/api/mottos.json", true);
+        req.send(jsonString);
 	};
 
 	$scope.openLogin = function () {

@@ -119,7 +119,22 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	$scope.login = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		firebase.auth().signInWithEmailAndPassword(email, password)
+		.then(function(firebaseUser){
+			//login successful
+			var req = new XMLHttpRequest();
+			req.open("GET", "https://mottomanatee.firebaseio.com/api/users/" + email + ".json", true);
+			
+			req.onload = function () {
+				if (req.readyState == 4) {
+					var responseObj = JSON.parse(req.responseText); //JSON object erstellen und zurückgeben
+					callback(responseObj);
+				}
+			}
+			
+			req.send();
+		})
+		.catch(function(error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
@@ -135,5 +150,9 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
 		});
+		
+		function callback(result){
+			//result is the JSON object with all user info
+		}
 	}
 }

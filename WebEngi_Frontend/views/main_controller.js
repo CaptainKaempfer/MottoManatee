@@ -123,7 +123,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		.then(function(firebaseUser){
 			//login successful
 			var req = new XMLHttpRequest();
-			req.open("GET", "https://mottomanatee.firebaseio.com/api/users/" + email + ".json", true);
+			req.open("GET", 'https://mottomanatee.firebaseio.com/api/users/.json?orderBy="email"&equalTo=' + '"' + $scope.user.email + '"', true);
 			
 			req.onload = function () {
 				if (req.readyState == 4) {

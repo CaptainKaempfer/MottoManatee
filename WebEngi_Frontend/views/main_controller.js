@@ -11,7 +11,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		email: '',
 		address: '',
 		city: '',
-		state: '',
+		country: '',
 		postalCode: '',
 		password: ''
 	};
@@ -45,14 +45,6 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
         req.open("POST", "https://mottomanatee.firebaseio.com/api/mottos.json", true);
         req.send(jsonString);
 	};
-
-	$scope.openLogin = function () {
-		
-		ModalService.openLoginModel(function(){
-			$rootScope.isSessionCookie = true;
-		});
-	};
-
 
 	$scope.openDelete = function (mottoID) {
 		ModalService.openDeleteModal(function(){
@@ -116,7 +108,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	};
 	
 	//////////////////////////// Login
-	$scope.login = function () {
+	$scope.openLogin = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		firebase.auth().signInWithEmailAndPassword(email, password)
@@ -153,6 +145,16 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		
 		function callback(result){
 			//result is the JSON object with all user info
+			var root = result[Object.keys(result)[0]]; //first key of the Obj is the unique ID which we don't know at this point
+			$scope.user.firstName = root.vorname;
+			$scope.user.lastName = root.name;
+			$scope.user.email = root.email;
+			$scope.user.city = root.stadt;
+			$scope.user.country = root.land;
 		}
+		
+		ModalService.openLoginModel(function(){
+			$rootScope.isSessionCookie = true;
+		});
 	}
 }

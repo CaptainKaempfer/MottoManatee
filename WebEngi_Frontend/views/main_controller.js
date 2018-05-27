@@ -157,4 +157,19 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			$rootScope.isSessionCookie = true;
 		});
 	}
+	
+	/**
+	 * Queries user specific mottos from the data base
+	 */
+	$scope.getUserMottos = function () {
+		// Test data (can be replaced with actual code)
+		$scope.userMottos = [ { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "September 2017"}, { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "August 2017"} ];
+	};
+
+	/** 
+	 * Currently not available warning
+	 */
+	$scope.currNotAvailable = function () {
+		alert("Diese Funktion ist zurzeit nicht verfügbar.\nWir arbeiten mit höchstleistung and derUmsetzung\ndieser Funktion.Bitte haben Sie noch etwas Gedult!");
+};
 }

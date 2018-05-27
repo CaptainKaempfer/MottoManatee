@@ -155,5 +155,6 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		
 		ModalService.openLoginModel(function(){
 			$rootScope.isSessionCookie = true;
+		});
 	}
 }

@@ -129,4 +129,6 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 		
 		return user;
 	}
+  
+
 }

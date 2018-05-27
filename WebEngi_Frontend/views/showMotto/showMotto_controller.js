@@ -24,6 +24,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         contentMotto9: '', autorMotto9: '',
     };
 
+    // Button interaction
     $scope.showAction = {
         likeText0: 'Gefällt mir', shareText0: 'Teilen', likeIcon0: 'fa fa-heart',
         likeText1: 'Gefällt mir', shareText1: 'Teilen', likeIcon1: 'fa fa-heart',
@@ -37,13 +38,17 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         likeText9: 'Gefällt mir', shareText9: 'Teilen', likeIcon9: 'fa fa-heart',
     };
 
+    // Sort possibilities
 	$scope.categories = ('Neuste-zuerst Älteste-zuerst ' +'Diese-Woche Diesen-Monat Dieses-Jahr' + '').split(' ').map(function(category) {
 		return {abbrev: category};
 	});
 
     ////////////////////////////////// Methoden /////////////////////////////////////////
+    /**
+     * Like a specific motto
+     * @param {index} index 
+     */
     $scope.likeFunction = function (index) {
-
         switch(index) {
             case 0:
                 $scope.showAction.likeText0 = 'Gefällt dir';
@@ -88,42 +93,39 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         }
     };
 
+    /**
+     * Share a specific motto
+     * @param {index} index 
+     */
     $scope.shareFunction = function (index) {
         
         switch(index) {
             case 0:
-                $scope.showAction.shareText0 = 'Geteilt'
-                break;
+                $scope.showAction.shareText0 = 'Geteilt'; break;
             case 1: 
-                $scope.showAction.shareText1 = 'Geteilt'
-                break;
+                $scope.showAction.shareText1 = 'Geteilt'; break;
             case 2:
-                $scope.showAction.shareText2 = 'Geteilt'
-                break;
+                $scope.showAction.shareText2 = 'Geteilt'; break;
             case 3:
-                $scope.showAction.shareText3 = 'Geteilt'
-                break;
+                $scope.showAction.shareText3 = 'Geteilt'; break;
             case 4:
-                $scope.showAction.shareText4 = 'Geteilt'
-                break;
+                $scope.showAction.shareText4 = 'Geteilt'; break;
             case 5:
-                $scope.showAction.shareText5 = 'Geteilt'
-                break;
+                $scope.showAction.shareText5 = 'Geteilt'; break;
             case 6:
-                $scope.showAction.shareText6 = 'Geteilt'
-                break;
+                $scope.showAction.shareText6 = 'Geteilt'; break;
             case 7:
-                $scope.showAction.shareText7 = 'Geteilt'
-                break;
+                $scope.showAction.shareText7 = 'Geteilt'; break;
             case 8:
-                $scope.showAction.shareText8 = 'Geteilt'
-                break;
+                $scope.showAction.shareText8 = 'Geteilt'; break;
             case 9:
-                $scope.showAction.shareText9 = 'Geteilt'
-                break;
+                $scope.showAction.shareText9 = 'Geteilt'; break;
         }
     };
 
+    /**
+     * Show detailed motto
+     */
     $scope.moreFunction = function () {
 		
 		ModalService.openLoginModel(function(){
@@ -131,6 +133,9 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		});
 	};
 
+    /**
+     * Get the motto content from firebase database
+     */
     $scope.getMottoContent = function() {
         $scope.showMotto = {
             contentMotto0: 'Zünde lieber eine Kerze an, statt über die Dunkelheit zu meckern', autorMotto0: 'Unbekannt',
@@ -152,7 +157,10 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		}
 		getMottoData(callback);
     };
-	
+    
+    /** 
+     * Firebase database connection -> get motto object
+     */
 	function getMottoData(callback){
 		var req = new XMLHttpRequest();
 		req.open("GET", 'https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="timestamp"&limitToLast=11', true); // 11 newest mottos
@@ -165,7 +173,28 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		}
 		
 		req.send();
-	}
+    }
+    
+    /**
+     * Update motto content for page 1
+     */
+    $scope.reloadeMottoContent1 = function() {
+
+    };
+
+    /**
+     * Update motto content for page 2
+     */
+    $scope.reloadeMottoContent2 = function() {
+
+    };
+
+    /**
+     * Update motto content for page 3
+     */
+    $scope.reloadeMottoContent3 = function() {
+
+    };
 	
 
 }

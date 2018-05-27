@@ -79,6 +79,7 @@ function ModalService($uibModal)
 						$modalInstance.dismiss('Close');
 					};
 
+					/* -------------- Modal functions for the motto card ------------- */
 					$scope.showAction = {
 						likeText: 'Gefällt mir', shareText: 'Teilen', likeIcon: 'fa fa-heart',
 					};
@@ -111,12 +112,41 @@ function ModalService($uibModal)
 					$scope.editType = DataInterchangeService.getEditType();
 
 					/**
+					 * Tempory storage for the user data
+					 */
+					$scope.profile = {
+						firstName: '',
+						lastName: '',
+						username: '',
+						email: '',
+						address: '',
+						city: '',
+						state: '',
+						postalCode: '',
+						password: ''
+					};
+
+					/**
 					 * Dismisses the dialog
 					 */
 					$scope.close = function () {
 						$modalInstance.dismiss('Close');
 					};
 
+					/**
+					 * Saves profile changes
+					 */
+					$scope.editProfile = function () {
+						if($scope.profile.firstName == '' && $scope.profile.lastName == '' && $scope.profile.username == '' && $scope.profile.email == '' && $scope.profile.address == '' && $scope.profile.city == '' && $scope.profile.state == '' && $scope.profile.postalCode == '' && $scope.profile.password == '')
+						{
+							alert("Keine neuen Werte eingegeben!\nBitte geben Sie mindestens einen neuen Wert\nein, um die Änderungen spreichern zu können!");
+						} else {
+							// Change profile
+							
+							// Dismisses the dialog
+							$modalInstance.dismiss('Close');
+						}
+					};
 				
 				}],
 				size: null

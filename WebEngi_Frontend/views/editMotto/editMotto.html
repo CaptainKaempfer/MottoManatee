@@ -5,11 +5,10 @@
     <link rel="icon" type="image/png" href="assets/paper_img/favicon.ico">
     <link href='assets/css/motto-slider.css' rel='stylesheet' type='text/css'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    
+    <!-- Page titel -->
     <title>Motto Manatee - Mottos bearbeiten</title>
-  
 </head>
-<body ng-init="checkLogIn()">
+<body>
 
 <nav class="navbar navbar-ct-danger" role="navigation-demo" id="demo-navbar">
   <div class="container">
@@ -58,7 +57,7 @@
         </div>
     </div>
     
-    <div class="main">
+    <div class="main" ng-init="checkLogIn() || getUserMottos()">
         <div class="section section-nude">
     <div class="container">
         <div class="row">
@@ -68,11 +67,12 @@
                         <md-content>
                             <md-tabs md-dynamic-height="" md-border-bottom="">
                             <md-tab label="Profil&uuml;bersicht">
+                                <!-- First tab: profil overview -->
                                 <md-content class="md-padding">
                                 <h3 class="text-muted">Profil&uuml;bersicht</h3><br>
                                 <div layout="column" ng-cloak="" class="md-padding colorsdemoBasicUsage">
                                     <regular-card name="User name" md-theme="default"></regular-card>
-                                        <!-- Vorname -->
+                                        <!-- First name -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -88,7 +88,7 @@
                                             </md-card-title-text>
                                         </md-card-title>
                                         </md-card>
-                                        <!-- Nachname -->
+                                        <!-- Last name -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -104,7 +104,7 @@
                                             </md-card-title-text>
                                         </md-card-title>
                                         </md-card>
-                                        <!-- Benutzername -->
+                                        <!-- username -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -120,7 +120,7 @@
                                             </md-card-title-text>
                                         </md-card-title>
                                         </md-card>
-                                        <!--Adresse -->
+                                        <!--adress -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -136,7 +136,7 @@
                                             </md-card-title-text>
                                         </md-card-title>
                                         </md-card>
-                                        <!-- Detailierte Adresse -->
+                                        <!-- detailed adress -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -152,7 +152,7 @@
                                             </md-card-title-text>
                                         </md-card-title>
                                         </md-card>
-                                        <!-- E-Mail Adresse -->
+                                        <!-- E-Mail adress -->
                                         <md-card>
                                             <md-card-title>
                                                 <md-card-title-media>
@@ -171,29 +171,35 @@
                                 </div>
                                 </md-content>
                             </md-tab>
+                            <!-- User specific mottos -->
                             <md-tab label="Meine Mottos">
+                            <!-- Second tab: user mottos -->
                                 <md-content class="md-padding">
                                     <h3 class="text-muted">&Uuml;bersicht deiner Mottos</h3>
                                     <br><br>
-                                    <div class="post-preview">
-                                        <a href="post.html">
-                                            <h2 class="post-title">
-                                            Zaandam, North Holland
-                                            </h2>
-                                            <h3 class="post-subtitle">
-                                            Visit the magnificient windmils of Zaandam
-                                            </h3>
-                                        </a>
-                                        <p class="post-meta">Posted by
-                                            <a href="#">Maik Scherr</a> on September 24, 2018
-                                        </p>
-                                        <p class="post-detail">
-                                            <button class="btn btn-default" ng-click="openDelete()" id="btn-def">Motto l&ouml;schen</button> <!-- openDelete() parameter: String mottoID -->
-                                            <button class="btn btn-default" id="btn-def">Motto bearbeiten</button>
-                                        </p>
+                                    <!-- Dynamic user motto area -->
+                                    <div ng-repeat="motto in userMottos" >
+                                        <div class="post-preview">
+                                            <a href="">
+                                                <!-- Motto titel -->
+                                                <h2 class="post-title"> {{motto.titel}} </h2>
+                                                <!-- Motto content -->
+                                                <h3 class="post-subtitle"> {{motto.motto}} </h3>
+                                            </a> 
+                                                <!-- User data -->
+                                                <p class="post-meta">Ver&ouml;ffentlicht von
+                                                <a href="">{{user.firstName}} {{user.lastName}}</a> am {{motto.date}}
+                                            </p>
+                                            <p class="post-detail">
+                                                <!-- Buttons to interact with the motto -->
+                                                <button class="btn btn-default" style="margin: 5px;" ng-click="openDelete()" id="btn-def">Motto l&ouml;schen</button> <!-- openDelete() parameter: String mottoID -->
+                                                <button class="btn btn-default" style="margin: 5px;" ng-click="currNotAvailable()" id="btn-def">Motto bearbeiten</button>
+                                            </p>
+                                        </div>
                                     </div>
                                 </md-content>
                             </md-tab>
+                            <!-- End of user mottos -->
                             </md-tabs>
                         </md-content>
                     </div>                       

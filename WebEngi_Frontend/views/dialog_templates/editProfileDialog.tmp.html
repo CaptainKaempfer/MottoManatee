@@ -1,27 +1,81 @@
 <head>
     <title>Profil bearbeiten - Dialog</title>
-
     <link href="assets/css/modal.tmp.css" rel="stylesheet"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <div class="modal-header-delete" id="headerStyle">
-        <h3>{{editType}} bearbeiten</h3>
+        <h3>Profil bearbeiten</h3>
     </div>
     <div class="modal-body">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p style="font-size: 18px;">Bitte geben Sie den neuen Wert ein: 
+                    <p style="font-size: 18px;">Bitte geben Sie die neuen Werte ein: 
                         <i class="material-icons" style="font-size:24px; color: #ff8f5e">edit</i>
                     </p><br>
                     <p>
-                        <form class="register-form">
-                            <!-- New Value -->
-                            <md-input-container class="md-block">
-                                <label style="color: #ff8f5e">Neuer Wert</label>
-                                <input style="color: #a09993" ng-model="newValue">
-                            </md-input-container>
+                        <form class="editProfile-form" name="editInput">
+                            <!-- Complete name -->
+                            <div layout-gt-sm="row">
+                                <!-- First name-->
+                                <md-input-container class="md-block" flex-gt-sm="" style="color: #ff8f5e">
+                                    <label style="color: #ff8f5e">Vorname</label>
+                                    <input type="text" style="color: #ff8f5e" ng-model="profile.firstName">
+                                </md-input-container>
+                                <!-- Second name -->
+                                <md-input-container class="md-block" flex-gt-sm="">
+                                    <label style="color: #ff8f5e">Nachname</label>
+                                    <input type="text" style="color: #ff8f5e" ng-model="profile.lastName">
+                                </md-input-container>
+                                </div>
+                        
+                                <!-- Username -->
+                                <md-input-container class="md-block">
+                                    <label style="color: #ff8f5e">Benutzername</label>
+                                    <input type="text" style="color: #ff8f5e" ng-model="profile.username">
+                                </md-input-container>
+    
+                                <!-- Adress -->
+                                <md-input-container class="md-block">
+                                <label style="color: #ff8f5e">Addresse</label>
+                                <input style="color: #ff8f5e" ng-model="profile.address">
+                                </md-input-container>
+
+                                <!-- E-Mail address -->
+                                <md-input-container class="md-block">
+                                <label style="color: #ff8f5e">E-Mail Adresse</label>
+                                <input type="email" style="color: #ff8f5e" ng-model="profile.email">
+                                </md-input-container>
+                        
+                                <!-- Adress information -->
+                                <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm="">
+                                    <label style="color: #ff8f5e">Stadt</label>
+                                    <input type="text" style="color: #ff8f5e" ng-model="profile.city">
+                                </md-input-container>
+                        
+                                <md-input-container class="md-block" flex-gt-sm="">
+                                    <label style="color: #ff8f5e">Bundesland</label>
+                                    <md-select ng-model="profile.state">
+                                    <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                                        {{state.abbrev}}
+                                    </md-option>
+                                    </md-select>
+                                </md-input-container>
+                        
+                                <md-input-container class="md-block" flex-gt-sm="">
+                                    <label style="color: #ff8f5e">Postleitzahl (PLZ)</label>
+                                    <input style="color: #ff8f5e" name="postalCode" ng-model="profile.postalCode" placeholder="12345" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                                </md-input-container>
+                                </div>
+
+                                <!-- Password -->
+                                <md-input-container class="md-block">
+                                <label style="color: #ff8f5e">Passwort</label>
+                                <input  type="password" style="color: #ff8f5e" ng-model="profile.password">
+                                </md-input-container>
+                            </div>
                         </form>
                     </p>
                 </div>
@@ -29,7 +83,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary btn-simple">{{editType}} bearbeiten</button>   
+        <button class="btn btn-primary btn-simple" ng-click="editProfile()">Profil bearbeiten</button>   
         <button ng-click="close()" class="btn btn-primary btn-simple" style="margin: 10px 5px 5px 5px;">Abbrechen</button>
     </div>
 </body>

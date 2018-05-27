@@ -3,11 +3,11 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 {
 	////////////////////////////////// Variable Declaration /////////////////////////////
 
-	// Notifying Declarations
+	// User data object
 	$scope.user = {
 		firstName: '',
 		lastName: '',
-		username: '',
+		username: 'a',
 		email: '',
 		address: '',
 		city: '',
@@ -16,7 +16,10 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		password: ''
 	};
 
-	// Ranking
+	// User specific mottos
+	$scope.userMottos;
+
+	// User ranking
 	$scope.ranking = {
 		first: 'Maik Scherr',
 		second: 'Josch Venus',
@@ -32,18 +35,15 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	 * Opens a standard modal 
 	 */
 	$scope.postMotto = function(user) {
+		var d = new Date();
 		$scope.Motto = {
-			"text": user.motto,
-			"title": user.title,
-			"timestamp": {".sv": "timestamp"},
-            "user": user.username,
-            "land": user.country
+			mottotext: user.motto,
+			mottotitle: user.title,
+			mottodate: d,
+			mottouser: user.username
 		};
-		
-        var jsonString = JSON.stringify($scope.Motto);
-	    var req = new XMLHttpRequest();
-        req.open("POST", "https://mottomanatee.firebaseio.com/api/mottos.json", true);
-        req.send(jsonString);
+		alert("Hier wird das Motto gepostet!");
+		/* Motto soll hier gepostet werden */
 	};
 
 	$scope.openDelete = function (mottoID) {
@@ -56,8 +56,9 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		req.send();
 	};
 
-	//
+	///////////////////////////////// Functions //////////////////////////////////////////
 
+	// Save data currently in the storage
 	$scope.editName = function () {
 		DataInterchangeService.setEditType('Name');
 		ModalService.editProfileModal(function(){
@@ -95,49 +96,36 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		});
 	};
 
-	///////////////////////////////// Functions //////////////////////////////////////////
-
+	/**
+	 * Simple check if user is logged in
+	 */
 	$scope.checkLogIn = function () {
 		if($scope.user.username == '')
 		{
-			console.log("User isn´t logged in! Please log in first to use this feature.");
+			alert("Sie sind nicht eingeloggt. Bitte loggen Sie sich\nein, um dieses Feature nutzen zu können!");
+			console.log("User isn´t logged in!")
+			// Return to startpage if not logged in
 			$location.path("index_dev.html#/startpage");
 		} else {
 			console.log("User is logged in!");
 		}
 	};
 	
-	//////////////////////////// Login
+
 	$scope.openLogin = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
-		firebase.auth().signInWithEmailAndPassword(email, password)
-		.then(function(firebaseUser){
-			//login successful
-			var req = new XMLHttpRequest();
-			req.open("GET", 'https://mottomanatee.firebaseio.com/api/users/.json?orderBy="email"&equalTo=' + '"' + $scope.user.email + '"', true);
-			
-			req.onload = function () {
-				if (req.readyState == 4) {
-					var responseObj = JSON.parse(req.responseText); //JSON object erstellen und zurückgeben
-					callback(responseObj);
-				}
-			}
-			
-			req.send();
-		})
-		.catch(function(error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// [START_EXCLUDE]
-			if (errorCode === 'auth/wrong-password') {
-				alert('Wrong password.');
-			} 
-			else {
-				//alert(errorMessage);
-				alert(email);
-			}
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            //alert(errorMessage);
+			alert(email);
+          }
           //console.log(error);
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
@@ -157,4 +145,52 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			$rootScope.isSessionCookie = true;
 		});
 	}
+
+	/**
+	 * Register a new user
+	 */
+	$scope.registration = function() {
+      var email = $scope.user.email;
+      var password = $scope.user.password;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+      // [END createwithemail]
+	}
+
+	/**
+	 * Queries user specific mottos from the data base
+	 */
+	$scope.getUserMottos = function () {
+		// Test data (can be replaced with actual code)
+		$scope.userMottos = [ { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "September 2017"}, { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "August 2017"} ];
+	};
+
+	/** 
+	 * Currently not available warning
+	 */
+	$scope.currNotAvailable = function () {
+		alert("Diese Funktion ist zurzeit nicht verfügbar.\nWir arbeiten mit höchstleistung and derUmsetzung\ndieser Funktion.Bitte haben Sie noch etwas Gedult!");
+	};
+
 }

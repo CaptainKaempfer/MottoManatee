@@ -11,7 +11,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		email: '',
 		address: '',
 		city: '',
-		state: '',
+		country: '',
 		postalCode: '',
 		password: ''
 	};
@@ -46,19 +46,6 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		/* Motto soll hier gepostet werden */
 	};
 
-	/**
-	 * Open the login modal
-	 */
-	$scope.openLogin = function () {
-		ModalService.openLoginModel(function(){
-			$rootScope.isSessionCookie = true;
-		});
-	};
-
-	/**
-	 * Delete a motto and open a simple notificaion dialog
-	 * @param {mottoID} mottoID 
-	 */
 	$scope.openDelete = function (mottoID) {
 		ModalService.openDeleteModal(function(){
 			$rootScope.isSessionCookie = true;
@@ -124,10 +111,8 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		}
 	};
 	
-	/**
-	 * LogIn with user data
-	 */
-	$scope.login = function () {
+
+	$scope.openLogin = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -144,6 +129,20 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
           //console.log(error);
           //document.getElementById('quickstart-sign-in').disabled = false;
           // [END_EXCLUDE]
+		});
+		
+		function callback(result){
+			//result is the JSON object with all user info
+			var root = result[Object.keys(result)[0]]; //first key of the Obj is the unique ID which we don't know at this point
+			$scope.user.firstName = root.vorname;
+			$scope.user.lastName = root.name;
+			$scope.user.email = root.email;
+			$scope.user.city = root.stadt;
+			$scope.user.country = root.land;
+		}
+		
+		ModalService.openLoginModel(function(){
+			$rootScope.isSessionCookie = true;
 		});
 	}
 

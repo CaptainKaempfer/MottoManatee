@@ -156,7 +156,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		ModalService.openLoginModel(function(){
 			$rootScope.isSessionCookie = true;
 		});
-	}
+	};
 	
 	/**
 	 * Queries user specific mottos from the data base

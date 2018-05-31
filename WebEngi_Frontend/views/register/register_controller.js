@@ -13,7 +13,7 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 		email: '',
 		address: '',
 		city: '',
-		state: '',
+		country: '',
 		postalCode: '',
 		password: ''
 	};
@@ -72,19 +72,53 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 			return false;
 		}
 
+				// Sign in with email and pass.
+		// [START createwithemail]
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+		.then(function(firebaseUser){
+			//API call to register a new user
+			var jsonString = JSON.stringify(createJSONUser());
+			var req = new XMLHttpRequest();
+			req.open("POST", "https://mottomanatee.firebaseio.com/api/users.json", true);
+			req.send(jsonString);
+		})
+		.catch(function(error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// [START_EXCLUDE]
+			if (errorCode == 'auth/weak-password') {
+				alert('The password is too weak.');
+			} 
+			else {     
+				alert(errorMessage);
+			}
+			console.log(error);
+			// [END_EXCLUDE]
+		});
+		// [END createwithemail]
+
 		// Save data in firebase database
 
-		//API call to register a new user
-		var jsonString = JSON.stringify(jsonObj);
-		var req = new XMLHttpRequest();
-		req.open("PATCH", "https://mottomanatee.firebaseio.com/api/users.json", true);
-		req.send(jsonString);
 
 		// Open user respond dialog
 		ModalService.openRegisterModal(function(){
 			$rootScope.isSessionCookie = true;
 		});
+
 	};
+	
+	function createJSONUser(){
+		var user = {
+			"land": $scope.user.country,
+			"name": $scope.user.lastName,
+			"vorname": $scope.user.firstName,
+			"stadt": $scope.user.city,
+			"email": $scope.user.email
+		};
+		
+		return user;
+	}
   
 
 }

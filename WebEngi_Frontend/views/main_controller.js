@@ -159,12 +159,27 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	};
 	
 	/**
-	 * Queries user specific mottos from the data base
+	 * Queries user specific mottos from the API
 	 */
 	$scope.getUserMottos = function () {
-		// Test data (can be replaced with actual code)
-		$scope.userMottos = [ { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "September 2017"}, { titel: "Mein erstes Motto", motto: "Dies ist ein test motto.", date: "August 2017"} ];
+			getMottoData(email, function f(result){
+			$scope.userMottos = result; // still need to be parsed as needed
+		});		
+		
 	};
+	
+	function getMottoData(email, callback){
+			var req = new XMLHttpRequest();
+			req.open("GET", "https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="user"&equalTo="' + email + '"', true);
+			req.onload = function () {
+				if (req.readyState == 4 && req.status == "200") {
+					var responseObj = JSON.parse(req.responseText); //JSON object erstellen un zurückgeben
+					callback(responseObj);
+				}
+			}
+		
+		req.send();
+	}
 
 	/** 
 	 * Currently not available warning

@@ -129,38 +129,37 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
      * Get the motto content from firebase database
      */
     $scope.getMottoContent = function() {
-    	
-		$scope.showMotto.contentMotto[0] = 'Zünde lieber eine Kerze an; statt über die Dunkelheit zu meckern'; 
-		$scope.showMotto.autorMotto[0] = 'Unbekannt';
-		$scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';
-		$scope.showMotto.autorMotto[1] = 'Unbekannt';
-		$scope.showMotto.contentMotto[2] = 'Jeder ist seines Glückes Schmied';
-		$scope.showMotto.autorMotto[2] = 'Unbekannt';
-		$scope.showMotto.contentMotto[3] = 'Habe Mut; dich deines eingenen Verstandes zu bedienen';
-		$scope.showMotto.autorMotto[3] = 'Unbekannt';
-		$scope.showMotto.contentMotto[4] = 'Wer nicht hofft; der wird nie dem Unverhofftem begegnen';
-		$scope.showMotto.autorMotto[4] = 'Unbekannt';
-		$scope.showMotto.contentMotto[5] = 'Alles im Leben hat zwei Seiten. Suche die Beste!';
-		$scope.showMotto.autorMotto[5] = 'Unbekannt';
-		$scope.showMotto.contentMotto[6] = 'Angriff ist die beste Verteidigung';
-		$scope.showMotto.autorMotto[6] = 'Unbekannt';
-		$scope.showMotto.contentMotto[7] = 'Beim Duschen sollte der Duschvorhang immer innen sein!';
-		$scope.showMotto.autorMotto[7] = 'Unbekannt';
-		$scope.showMotto.contentMotto[8] = 'Ende Gut alles Gut';
-		$scope.showMotto.autorMotto[8] = 'Unbekannt';
-		$scope.showMotto.contentMotto[9] = 'Alles hat ein Ende nur die Wurst hat zwei'; 
-		$scope.showMotto.autorMotto[9] = 'Unbekannt';
-		
+    			
 		//get JSON motto data
 		var callback = function(result){ //result is a JSON object with the 11 newest mottos
-			//console.log(JSON.stringify(result));
-			//parse the JSON in here
+			
+			$scope.showMotto.contentMotto[0] = result[Object.keys(result)[0]].text;
+			$scope.showMotto.autorMotto[0] = 'Unbekannt';
+			$scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';
+			$scope.showMotto.autorMotto[1] = 'Unbekannt';
+			$scope.showMotto.contentMotto[2] = 'Jeder ist seines Glückes Schmied';
+			$scope.showMotto.autorMotto[2] = 'Unbekannt';
+			$scope.showMotto.contentMotto[3] = 'Habe Mut; dich deines eingenen Verstandes zu bedienen';
+			$scope.showMotto.autorMotto[3] = 'Unbekannt';
+			$scope.showMotto.contentMotto[4] = 'Wer nicht hofft; der wird nie dem Unverhofftem begegnen';
+			$scope.showMotto.autorMotto[4] = 'Unbekannt';
+			$scope.showMotto.contentMotto[5] = 'Alles im Leben hat zwei Seiten. Suche die Beste!';
+			$scope.showMotto.autorMotto[5] = 'Unbekannt';
+			$scope.showMotto.contentMotto[6] = 'Angriff ist die beste Verteidigung';
+			$scope.showMotto.autorMotto[6] = 'Unbekannt';
+			$scope.showMotto.contentMotto[7] = 'Beim Duschen sollte der Duschvorhang immer innen sein!';
+			$scope.showMotto.autorMotto[7] = 'Unbekannt';
+			$scope.showMotto.contentMotto[8] = 'Ende Gut alles Gut';
+			$scope.showMotto.autorMotto[8] = 'Unbekannt';
+			$scope.showMotto.contentMotto[9] = 'Alles hat ein Ende nur die Wurst hat zwei'; 
+			$scope.showMotto.autorMotto[9] = 'Unbekannt';
 		}
 		getMottoData(callback);
+		
     };
     
     /** 
-     * Firebase database connection -> get motto object
+     * API request -> get motto object
      */
 	function getMottoData(callback){
 		var req = new XMLHttpRequest();

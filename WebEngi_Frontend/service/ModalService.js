@@ -122,7 +122,30 @@ function ModalService($uibModal)
 				size: null
 			});
 		},
+		/**
+		 * Displays a modal for detailed motto infos
+		 * @param {string} message
+		 */
+		openDetailModal: function (message) {
+			$uibModal.open({
+				animation: true,
+				templateUrl: 'views/motto_template/motto_detailed.tmp.html',
+				controller: ['$scope', '$modalInstance', 'DataInterchangeService', function ($scope, $modalInstance, DataInterchangeService) {
 
+					$scope.message = message;
+
+					/**
+					 * Dismisses the dialog
+					 */
+					$scope.close = function () {
+						$modalInstance.dismiss('Close');
+					};
+
+				
+				}],
+				size: null
+			});
+		},
 
 	// End	
 	}

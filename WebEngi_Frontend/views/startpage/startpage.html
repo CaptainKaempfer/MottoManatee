@@ -10,6 +10,7 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <link href='assets/css/custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/motto-slider.css' rel='stylesheet' type='text/css'>
       
 </head>
 <body>
@@ -60,8 +61,7 @@
         </div>
     </div>
 
-    
-              
+       
         <div class="alert alert-danger landing-alert">
              <div class="container text-center">
                  <h5>Beginne jetzt deine lieblings Mottos und Zitate zu veröffentlichen</h5>
@@ -76,73 +76,66 @@
                         <h1 class="title-uppercase">Beliebtesten Mottos</h1>
                         <h3>Hier sehen Sie eine Übersicht über die beliebtesten Mottos diese Woche</h3>
 
-
-                        <div id="carousel">
-                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <div class="carousel slide" data-ride="carousel">
+                        <!-- Motto Slider -->
+                        <section class="section slider">
+                            <div class="section__entry section__entry--center">
+                            </div>
                         
-                                      <!-- Indicators -->
-                                      <ol class="carousel-indicators">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                      </ol>
-                                    
-                                      <!-- Wrapper for slides -->
-                                      <div class="carousel-inner">
-                                        <div class="item active">                                           
-                                            <section id="quote-section" class="jumbotron  ">
-                                                 <div id="quotebox" class="container">
-                                                    <blockquote class="quote">    
-                                                        <p id="quote">   Ist doch der Mensch gleichwie nichts; seine Tage gehen dahin wie ein Schatten, er hüpft umher wie ein Bock, bläht sich auf wie eine Blase, 
-                                                        </p> 
-                                                    </blockquote>
-                                                    <blockquote class="author" id="author"><cite>Elisabeth Schwan</cite></blockquote>
-                            
-                                                    <a href="" class="btn btn-info" id="twitter" >Gefällt mir</a>
-                                                    <button id="newquote" class="btn  btn-success">Noch ein Zitat</button>                                                         
-                                                </div>                             
-                                            </section>
-                                        </div>
-                                        <div class="item">
-                                            <section id="quote-section" class="jumbotron  ">
-                                                <div id="quotebox" class="container">
-                                                    <blockquote class="quote">    
-                                                        <p id="quote"> Die Welt ist klein aber die Träume der Menschen sind groß 
-                                                        </p> 
-                                                    </blockquote>
-                                                    <blockquote class="author" id="author"><cite>Josch Venus</cite></blockquote>
-                            
-                                                    <a href="" class="btn btn-info" id="twitter" >Gefällt mir</a>
-                                                    <button id="newquote" class="btn  btn-success">Noch ein Zitat</button>                                                         
-                                                </div>                             
-                                            </section>
-                                        </div>
-                                        <div class="item">
-                                            <section id="quote-section" class="jumbotron  ">
-                                                <div id="quotebox" class="container">
-                                                    <blockquote class="quote">    
-                                                        <p id="quote"> Erklimme die Leiter der Hoffnung zur Findung der Glückseligkeit 
-                                                        </p> 
-                                                    </blockquote>
-                                                    <blockquote class="author" id="author"><cite>Maik Scherr</cite></blockquote>
-                            
-                                                    <a href="" class="btn btn-info" id="twitter" >Gefällt mir</a>
-                                                    <button id="newquote" class="btn  btn-success">Noch ein Zitat</button>                                                         
-                                                </div>                             
-                                            </section>
-                                        </div>
-                                      </div>
-                                    
-                                      <!-- Controls -->
-                                      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                        <span class="fa fa-angle-left"></span>
-                                      </a>
-                                      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                        <span class="fa fa-angle-right"></span>
-                                      </a>
+                              <input type="radio" name="slider" id="slide-1" class="slider__radio">
+                              <input type="radio" name="slider" id="slide-2" class="slider__radio">
+                              <input type="radio" name="slider" id="slide-3" class="slider__radio" checked>
+                              <input type="radio" name="slider" id="slide-4" class="slider__radio">
+                              <input type="radio" name="slider" id="slide-5" class="slider__radio">
+                        
+                              <div class="slider__holder">
+                        
+                                  <label for="slide-1" class="slider__item slider__item--1 card">
+                                <div class="slider__item-content">
+                                  <p class="heading-3 heading-3--light">Motto Manatee</p>
+                                  <p class="heading-3"><i class="material-icons" style="font-size:24px; color: #fff">format_quote</i>Albert Einstein</p>
+                                  <p class="slider__item-text serif">Ich denke niemals an die Zukunft, sie kommt fr&uuml;h genug.</p>
+                                  <button class="btn btn-default" id="btn-default">Motto Details</button>
                                 </div>
-                            </div> <!-- end carousel -->
+                                  </label> <!-- Slider__item -->
+                        
+                                  <label for="slide-2" class="slider__item slider__item--2 card">
+                                <div class="slider__item-content">
+                                  <p class="heading-3 heading-3--light">Motto Manatee</p>
+                                  <p class="heading-3"><i class="material-icons" style="font-size:24px; color: #fff">format_quote</i>Aristoteles</p>
+                                  <p class="slider__item-text serif">Du kannst den Wind nicht &auml;ndern, aber du kannst die Segel anders setzen.</p>
+                                  <button class="btn btn-default" id="btn-default">Motto Details</button>
+                                </div>
+                                  </label> <!-- Slider__item -->
+                        
+                                  <label for="slide-3" class="slider__item slider__item--3 card">
+                                <div class="slider__item-content">
+                                  <p class="heading-3 heading-3--light">Motto Manatee</p>
+                                  <p class="heading-3"><i class="material-icons" style="font-size:24px; color: #fff">format_quote</i>Franz Kafka</p>
+                                  <p class="slider__item-text serif">Wege entstehen dadurch, dass wir sie gehen.</p>
+                                  <button class="btn btn-default" id="btn-default">Motto Details</button>
+                                </div>
+                                  </label> <!-- Slider__item -->
+                        
+                                  <label for="slide-4" class="slider__item slider__item--4 card">
+                                <div class="slider__item-content">
+                                  <p class="heading-3 heading-3--light">Motto Manatee</p>
+                                  <p class="heading-3"><i class="material-icons" style="font-size:24px; color: #fff">format_quote</i>Mahatma Gandhi</p>
+                                  <p class="slider__item-text serif">Die Zukunft h&auml;ngt von dem ab, was Du heute tust.</p>
+                                  <button class="btn btn-default" id="btn-default">Motto Details</button>
+                                </div>
+                                  </label> <!-- Slider__item -->
+                        
+                                  <label for="slide-5" class="slider__item slider__item--5 card">
+                                <div class="slider__item-content">
+                                  <p class="heading-3 heading-3--light">Motto Manatee</p>
+                                  <p class="heading-3"><i class="material-icons" style="font-size:24px; color: #fff">format_quote</i>Herny Ford</p>
+                                  <p class="slider__item-text serif">Wer immer tut, was er schon kann, bleibt immer das, was er schon ist.</p>
+                                  <button class="btn btn-default" id="btn-default">Motto Details</button>
+                                </div>
+                                  </label> <!-- Slider__item -->
+                        
+                              </div> <!-- Slider Holder -->
+                          </section> <!-- Section Slider -->
 
                         <br>
                         <br>
@@ -215,7 +208,7 @@
                                                 <a href="#">
                                                     <div class="container-podium">
                                                         <div class="image">
-                                                            <svg version="1.1" id="place-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 180 180" enable-background="new 0 0 180 180" xml:space="preserve"><path fill="#ffffff" d="M124.6,90.1l4.2-0.3l0.1-4.3l4.2-0.9l-0.5-4.3l4.1-1.4l-1-4.2l3.9-1.9l-1.5-4l3.6-2.3l-2-3.8l3.3-2.8l-2.5-3.5l2.9-3.2l-2.9-3.2l2.5-3.5l-3.3-2.8l2-3.8l-3.6-2.4l1.5-4l-3.9-1.9l1-4.2l-4.1-1.4l0.5-4.3l-4.2-0.9l-0.1-4.3l-4.3-0.3l-0.6-4.3l-4.3,0.2l-1.1-4.2L114.4,9l-1.6-4l-4.1,1.3l-2.1-3.7l-3.9,1.8L100,0.8l-3.7,2.3l-3-3.1L90,2.7L86.7,0l-3,3.1L80,0.8l-2.6,3.4l-3.9-1.8l-2.1,3.7L67.3,5l-1.6,4l-4.2-0.8l-1.1,4.2L56,12.1l-0.6,4.3l-4.3,0.3L51.1,21l-4.2,0.9l0.5,4.3l-4.1,1.4l1,4.2l-3.9,1.9l1.5,4l-3.6,2.3l2,3.8l-3.3,2.8l2.5,3.5l-2.9,3.2l2.9,3.2l-2.5,3.5l3.3,2.8l-2,3.8l3.6,2.4l-1.5,4l3.9,1.9l-1,4.2l4.1,1.4l-0.5,4.3l4.2,0.9l0.1,4.3l4.3,0.3l-30.6,73.9l27.5-11.4L63.6,180L90,116.3l26.4,63.7l11.4-27.5l27.5,11.4L124.6,90.1z M90,18.9c19.1,0,34.5,15.5,34.5,34.6C124.5,72.5,109.1,88,90,88c-19.1,0-34.5-15.5-34.5-34.6C55.5,34.4,70.9,18.9,90,18.9z"/></svg>
+                                                            <svg version="1.1" id="place-7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 180 180" enable-background="new 0 0 180 180" xml:space="preserve"><path fill="#9549c1" d="M124.6,90.1l4.2-0.3l0.1-4.3l4.2-0.9l-0.5-4.3l4.1-1.4l-1-4.2l3.9-1.9l-1.5-4l3.6-2.3l-2-3.8l3.3-2.8l-2.5-3.5l2.9-3.2l-2.9-3.2l2.5-3.5l-3.3-2.8l2-3.8l-3.6-2.4l1.5-4l-3.9-1.9l1-4.2l-4.1-1.4l0.5-4.3l-4.2-0.9l-0.1-4.3l-4.3-0.3l-0.6-4.3l-4.3,0.2l-1.1-4.2L114.4,9l-1.6-4l-4.1,1.3l-2.1-3.7l-3.9,1.8L100,0.8l-3.7,2.3l-3-3.1L90,2.7L86.7,0l-3,3.1L80,0.8l-2.6,3.4l-3.9-1.8l-2.1,3.7L67.3,5l-1.6,4l-4.2-0.8l-1.1,4.2L56,12.1l-0.6,4.3l-4.3,0.3L51.1,21l-4.2,0.9l0.5,4.3l-4.1,1.4l1,4.2l-3.9,1.9l1.5,4l-3.6,2.3l2,3.8l-3.3,2.8l2.5,3.5l-2.9,3.2l2.9,3.2l-2.5,3.5l3.3,2.8l-2,3.8l3.6,2.4l-1.5,4l3.9,1.9l-1,4.2l4.1,1.4l-0.5,4.3l4.2,0.9l0.1,4.3l4.3,0.3l-30.6,73.9l27.5-11.4L63.6,180L90,116.3l26.4,63.7l11.4-27.5l27.5,11.4L124.6,90.1z M90,18.9c19.1,0,34.5,15.5,34.5,34.6C124.5,72.5,109.1,88,90,88c-19.1,0-34.5-15.5-34.5-34.6C55.5,34.4,70.9,18.9,90,18.9z"/></svg>
                                                         </div>
                                                         <div class="content">
                                                             <h2>Dritter Platz</h2>

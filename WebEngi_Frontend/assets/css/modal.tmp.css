@@ -2,3 +2,10 @@
     background: #7ac29a;
     color: #fff;
 }
+
+.modal-header-delete {
+    background: #ff8f5e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+}

@@ -126,7 +126,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 
     $scope.moreFunction = function () {
 		
-		ModalService.openLoginModel(function(){
+		ModalService.openDetailModal(function(){
 			$rootScope.isSessionCookie = true;
 		});
 	};

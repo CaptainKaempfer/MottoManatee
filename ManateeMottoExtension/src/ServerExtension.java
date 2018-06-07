@@ -22,16 +22,14 @@ public class ServerExtension {
 		this.objectMapper = new ObjectMapper();
 		objectMapper.setVisibility(JsonMethod.FIELD, Visibility.ANY);
 	}
-
 	// @POST
 	// @Produces(MediaType.APPLICATION_JSON)
 	// @Path("/users/new/")
-
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("users/{nick}")
-	public Response findUserByNick(@PathParam("nick") String nick) throws Exception {
-		Node node = graphdb.getNodeById(0);
+	@Path("users/{id}")
+	public Response findUserByNick(@PathParam("id") double id) throws Exception {
+		Node node = graphdb.getNodeById(id);
 		String str = null;
 		try
 		{
@@ -43,6 +41,5 @@ public class ServerExtension {
 			str = ex.getMessage();
 			return Response.ok(str,MediaType.APPLICATION_JSON).build();
 		}
-	}
-	
+	}	
 }

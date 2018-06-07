@@ -74,7 +74,7 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 
 				// Sign in with email and pass.
 		// [START createwithemail]
-		firebase.auth().createUserWithEmailAndPassword(email, password)
+		firebase.auth().createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
 		.then(function(firebaseUser){
 			//API call to register a new user
 			var jsonString = JSON.stringify(createJSONUser());

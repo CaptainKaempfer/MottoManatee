@@ -125,7 +125,6 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 
 		//get JSON motto data
 		var callback = function(result){ //result is a JSON object with the 11 newest mottos
-			
 			$scope.showMotto.contentMotto[0] = result[Object.keys(result)[0]].text;
 			$scope.showMotto.autorMotto[0] = 'Unbekannt';
 			$scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';

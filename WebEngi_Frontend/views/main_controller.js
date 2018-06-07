@@ -170,7 +170,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	
 	function getMottoData(email, callback){
 			var req = new XMLHttpRequest();
-			req.open("GET", "https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="user"&equalTo="' + email + '"', true);
+			req.open("GET", 'https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="user"&equalTo="' + email + '"', true);
 			req.onload = function () {
 				if (req.readyState == 4 && req.status == "200") {
 					var responseObj = JSON.parse(req.responseText); //JSON object erstellen un zurückgeben

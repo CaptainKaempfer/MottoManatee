@@ -3,18 +3,16 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 {
 	////////////////////////////////// Variable Declaration /////////////////////////////
 
+    $scope.mottoID = [];
+
     // Search bar declarations
 	$scope.searchMotto = {
 		titel: '',
 		author: '',
 		content: ''
     };
-    
-    // Motto content
-    $scope.showMotto = {
-        contentMotto: ['','','','','','','','',''], 
-		autorMotto: ['','','','','','','','','']
-    };
+
+    $scope.showMotto = DataInterchangeService.getContentMottoData();
 
     // Button interaction
     $scope.showAction = {
@@ -123,30 +121,58 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
      */
     $scope.getMottoContent = function() {
 
+        /*$scope.showMotto.contentMotto[0] = 'bla';
+        $scope.showMotto.autorMotto[0] = 'Unbekannt';
+        $scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';
+        $scope.showMotto.autorMotto[1] = 'Unbekannt';
+        $scope.showMotto.contentMotto[2] = 'Jeder ist seines Glückes Schmied';
+        $scope.showMotto.autorMotto[2] = 'Unbekannt';
+        $scope.showMotto.contentMotto[3] = 'Habe Mut; dich deines eingenen Verstandes zu bedienen';
+        $scope.showMotto.autorMotto[3] = 'Unbekannt';
+        $scope.showMotto.contentMotto[4] = 'Wer nicht hofft; der wird nie dem Unverhofftem begegnen';
+        $scope.showMotto.autorMotto[4] = 'Unbekannt';
+        $scope.showMotto.contentMotto[5] = 'Alles im Leben hat zwei Seiten. Suche die Beste!';
+        $scope.showMotto.autorMotto[5] = 'Unbekannt';
+        $scope.showMotto.contentMotto[6] = 'Angriff ist die beste Verteidigung';
+        $scope.showMotto.autorMotto[6] = 'Unbekannt';
+        $scope.showMotto.contentMotto[7] = 'Beim Duschen sollte der Duschvorhang immer innen sein!';
+        $scope.showMotto.autorMotto[7] = 'Unbekannt';
+        $scope.showMotto.contentMotto[8] = 'Ende Gut alles Gut';
+        $scope.showMotto.autorMotto[8] = 'Unbekannt';
+        $scope.showMotto.contentMotto[9] = 'Alles hat ein Ende nur die Wurst hat zwei'; 
+        $scope.showMotto.autorMotto[9] = 'Unbekannt';*/
+
 		//get JSON motto data
 		var callback = function(result){ //result is a JSON object with the 11 newest mottos
-			$scope.showMotto.contentMotto[0] = result[Object.keys(result)[0]].text;
-			$scope.showMotto.autorMotto[0] = 'Unbekannt';
-			$scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';
-			$scope.showMotto.autorMotto[1] = 'Unbekannt';
-			$scope.showMotto.contentMotto[2] = 'Jeder ist seines Glückes Schmied';
-			$scope.showMotto.autorMotto[2] = 'Unbekannt';
-			$scope.showMotto.contentMotto[3] = 'Habe Mut; dich deines eingenen Verstandes zu bedienen';
-			$scope.showMotto.autorMotto[3] = 'Unbekannt';
-			$scope.showMotto.contentMotto[4] = 'Wer nicht hofft; der wird nie dem Unverhofftem begegnen';
-			$scope.showMotto.autorMotto[4] = 'Unbekannt';
-			$scope.showMotto.contentMotto[5] = 'Alles im Leben hat zwei Seiten. Suche die Beste!';
-			$scope.showMotto.autorMotto[5] = 'Unbekannt';
-			$scope.showMotto.contentMotto[6] = 'Angriff ist die beste Verteidigung';
-			$scope.showMotto.autorMotto[6] = 'Unbekannt';
-			$scope.showMotto.contentMotto[7] = 'Beim Duschen sollte der Duschvorhang immer innen sein!';
-			$scope.showMotto.autorMotto[7] = 'Unbekannt';
-			$scope.showMotto.contentMotto[8] = 'Ende Gut alles Gut';
-			$scope.showMotto.autorMotto[8] = 'Unbekannt';
-			$scope.showMotto.contentMotto[9] = 'Alles hat ein Ende nur die Wurst hat zwei'; 
-			$scope.showMotto.autorMotto[9] = 'Unbekannt';
-		}
-		getMottoData(callback);
+            var i;
+            var tempData = {
+                contentMotto: ['','','','','','','','',''], 
+		        autorMotto: ['','','','','','','','','']
+            };
+
+            for(i = 0; i<2; i++){
+                try{
+                tempData.contentMotto[i] = result[Object.keys(result)[i]].text;
+                tempData.autorMotto[i] = result[Object.keys(result)[i]].user;
+                $scope.mottoID[i] = Object.keys(result)[i];
+                }catch(e){
+                    
+                }
+            }
+            console.log($scope.showMotto);
+            
+            DataInterchangeService.setContentMottoData(tempData);
+
+        }
+
+        $scope.showMotto = DataInterchangeService.getContentMottoData();
+
+        console.log("+++++++++++");
+        console.log("Daten: ", $scope.showMotto);
+
+         getMottoData(callback);
+
+         alert($scope.showMotto);
 		
     };
     
@@ -164,7 +190,8 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 			}
 		}
 		
-		req.send();
+        req.send();
+        
     }
     
     /**

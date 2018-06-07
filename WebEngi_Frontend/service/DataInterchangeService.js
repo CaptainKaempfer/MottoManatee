@@ -3,7 +3,10 @@ function DataInterchangeService ($http, $cookies)
 {
 	////////// Basic variables to store relevant data //////////
 	var editType = '';
-	
+	var mottoContentData = {
+        contentMotto: ['','','','','','','','',''], 
+		autorMotto: ['','','','','','','','','']
+    };
 	////////// Basic Operations to query relevant data //////////
 
 	var setEditType = function(editStr) {
@@ -22,6 +25,16 @@ function DataInterchangeService ($http, $cookies)
 		thist.editType = '';
 	}
 
+	var setContentMottoData = function (obj) {
+		mottoContentData.contentMotto = obj.contentMotto;
+		mottoContentData.autorMotto = obj.autorMotto;
+		console.log(mottoContentData);
+	};
+	var getContentMottoData = function()
+	{
+		console.log("-----Daten: ", mottoContentData);
+		return mottoContentData;
+	};
 	////////// Provide the operations for outside //////////
 
 	return{
@@ -42,5 +55,8 @@ function DataInterchangeService ($http, $cookies)
 		 * Clear all data
 		 */
 		clearAll: clearAll,
+		setContentMottoData: setContentMottoData,
+		getContentMottoData: getContentMottoData,
+
 	};
 }

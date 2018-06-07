@@ -3,7 +3,15 @@ function DataInterchangeService ($http, $cookies)
 {
 	////////// Basic variables to store relevant data //////////
 	var editType = '';
-	
+	var Motto = {
+		currentLikes: 0,
+		MottoText: '',
+		MottoTitle: '',
+		author: '',
+		share: 0,
+		postDate: '',
+		content: ''
+	};
 	////////// Basic Operations to query relevant data //////////
 
 	var setEditType = function(editStr) {
@@ -20,8 +28,16 @@ function DataInterchangeService ($http, $cookies)
 
 	var clearAll = function () {
 		thist.editType = '';
-	}
+	};
 
+	var getMotto = function() {
+		return Motto;
+	};
+	var setMotto = function(content, author) {
+		console.log("Daten: " + author + content);
+		Motto.author = author;
+		Motto.content = content;
+	};
 	////////// Provide the operations for outside //////////
 
 	return{
@@ -42,5 +58,7 @@ function DataInterchangeService ($http, $cookies)
 		 * Clear all data
 		 */
 		clearAll: clearAll,
+		getMotto: getMotto,
+		setMotto: setMotto,
 	};
 }

@@ -141,3 +141,15 @@ md-card.md-default-theme, md-card {
 .uiCardFont {
     font-size: 20px;
 }
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: #eb5e28;
+    font-size: 20px;
+}

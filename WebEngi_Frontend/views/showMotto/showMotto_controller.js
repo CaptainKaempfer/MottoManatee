@@ -42,7 +42,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 	$scope.categories = ('Neuste-zuerst Älteste-zuerst ' +'Diese-Woche Diesen-Monat Dieses-Jahr' + '').split(' ').map(function(category) {
 		return {abbrev: category};
 	});
-
+ 
     ////////////////////////////////// Methoden /////////////////////////////////////////
     /**
      * Like a specific motto
@@ -92,6 +92,43 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
                 break;
         }
     };
+
+    $scope.storeMotto = function(index) {
+        switch(index) {
+            case 0:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto0, $scope.showMotto.autorMotto0);
+                break;
+            case 1:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto1, $scope.showMotto.autorMotto1); 
+                break;
+            case 2:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto2, $scope.showMotto.autorMotto2);
+                break;
+            case 3:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto3, $scope.showMotto.autorMotto3);
+                break;
+            case 4:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto4, $scope.showMotto.autorMotto4);
+                break;
+            case 5:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto5, $scope.showMotto.autorMotto5);
+                break;
+            case 6:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto6, $scope.showMotto.autorMotto6);
+                break;
+            case 7:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto7, $scope.showMotto.autorMotto7);
+                break;
+            case 8:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto8, $scope.showMotto.autorMotto8);
+                break;
+            case 9:
+                DataInterchangeService.setMotto($scope.showMotto.contentMotto9, $scope.showMotto.autorMotto9);
+                break;
+        }
+
+        
+    }
 
     /**
      * Share a specific motto

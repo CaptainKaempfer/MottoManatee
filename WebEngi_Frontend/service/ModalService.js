@@ -163,6 +163,21 @@ function ModalService($uibModal)
 				controller: ['$scope', '$modalInstance', 'DataInterchangeService', function ($scope, $modalInstance, DataInterchangeService) {
 
 					$scope.message = message;
+					$scope.Mottodata = DataInterchangeService.getMotto();
+					$scope.showAction = {
+						likeText: 'Gefällt mir', shareText: 'Teilen', likeIcon: 'fa fa-heart',
+					};
+					$scope.currentShares = 25;
+					$scope.currentLikes = 151;
+					$scope.postDate = "01.01.2015";
+					
+					$likeFunction = function () {
+						$scope.showAction.likeText = 'Gefällt dir';
+                		$scope.showAction.likeIcon = 'fa fa-heart-o';
+					};
+					$shareFunction = function () {
+						$scope.showAction.shareText = "Geteilt";
+					};
 
 					/**
 					 * Dismisses the dialog

@@ -53,7 +53,7 @@
     <div class="demo-header">
         <div class="motto">
             <h1 class="title-uppercase">Mottos suchen</h1>
-            <h3>Such nach deinen leiblings Mottos schnell und einfach!</h3>
+            <h3>Such nach deinen Lieblingsmottos schnell und einfach!</h3>
         </div>
     </div>
     
@@ -119,22 +119,22 @@
                             <img ng-src="assets/paper_img/card.jpg" class="md-card-image" alt="Washed Out">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">von ~ {{showMotto.autorMotto0}}</span>
+                                <span class="md-headline">von ~ {{showMotto.autorMotto[0]}}</span>
                               </md-card-title-text>
                             </md-card-title>
                             <md-card-content>
-                              <div class="uiCardFont"> {{showMotto.contentMotto0}} </div>
+                              <div class="uiCardFont"> {{showMotto.contentMotto[0]}} </div>
                             </md-card-content>
                             <md-card-actions layout="row" layout-align="end center" class="uiCard">
                               <!-- Buttons -->
                               <div class="like-content">
                                 <button class="btn-secondary like-review" ng-click="likeFunction(0)">
-                                  <i class="{{showAction.likeIcon0}}" aria-hidden="true"></i> {{showAction.likeText0}}
+                                  <i class="{{showAction.likeIcon0}}" aria-hidden="true"></i> {{showAction.likeText[0]}}
                                 </button>
                               </div>
                               <div class="share-content">
                                 <button class="btn-secondary share-review" ng-click="shareFunction(0)">
-                                  <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText0}}
+                                  <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[0]}}
                                 </button>
                               </div>
                               <div class="more-content">
@@ -149,8 +149,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto1}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto1}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[1]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[1]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-lg card-media"></div>
@@ -160,12 +160,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(1)">
-                                    <i class="{{showAction.likeIcon1}}" aria-hidden="true"></i> {{showAction.likeText1}}
+                                    <i class="{{showAction.likeIcon1}}" aria-hidden="true"></i> {{showAction.likeText[1]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(1)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText1}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[1]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -180,8 +180,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto3}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto3}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[3]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[3]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-md card-media"></div>
@@ -191,12 +191,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(3)">
-                                    <i class="{{showAction.likeIcon3}}" aria-hidden="true"></i> {{showAction.likeText3}}
+                                    <i class="{{showAction.likeIcon3}}" aria-hidden="true"></i> {{showAction.likeText[3]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(3)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText3}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[3]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -211,8 +211,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto4}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto4}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[4]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[4]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-sm card-media"></div>
@@ -222,12 +222,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(4)">
-                                    <i class="{{showActionlikeIcon4}}" aria-hidden="true"></i> {{showAction.likeText4}}
+                                    <i class="{{showActionlikeIcon4}}" aria-hidden="true"></i> {{showAction.likeText[4]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(4)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText4}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[4]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -242,8 +242,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto5}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto5}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[5]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[5]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-md card-media"></div>
@@ -253,12 +253,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(5)">
-                                    <i class="{{showAction.likeIcon5}}" aria-hidden="true"></i> {{showAction.likeText5}}
+                                    <i class="{{showAction.likeIcon5}}" aria-hidden="true"></i> {{showAction.likeText[5]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(5)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText5}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[5]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -277,8 +277,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto2}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto2}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[2]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[2]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-sm card-media"></div>
@@ -288,12 +288,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(2)">
-                                    <i class="{{showAction.likeIcon2}}" aria-hidden="true"></i> {{showAction.likeText2}}
+                                    <i class="{{showAction.likeIcon2}}" aria-hidden="true"></i> {{showAction.likeText[2]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(2)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText2}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[2]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -308,8 +308,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto3}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto3}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[3]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[3]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-md card-media"></div>
@@ -319,12 +319,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(3)">
-                                    <i class="{{showAction.likeIcon3}}" aria-hidden="true"></i> {{showAction.likeText3}}
+                                    <i class="{{showAction.likeIcon3}}" aria-hidden="true"></i> {{showAction.likeText[3]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(3)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText3}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[3]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -339,8 +339,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto9}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto9}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[9]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[9]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-md card-media"></div>
@@ -350,12 +350,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(9)">
-                                    <i class="{{showAction.likeIcon9}}" aria-hidden="true"></i> {{showAction.likeText9}}
+                                    <i class="{{showAction.likeIcon9}}" aria-hidden="true"></i> {{showAction.likeText[9]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(9)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText9}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[9]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -370,8 +370,8 @@
                           <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="">
                             <md-card-title>
                               <md-card-title-text>
-                                <span class="md-headline">{{showMotto.contentMotto6}}</span>
-                                <span class="md-subhead">~{{showMotto.autorMotto6}}</span>
+                                <span class="md-headline">{{showMotto.contentMotto[6]}}</span>
+                                <span class="md-subhead">~{{showMotto.autorMotto[6]}}</span>
                               </md-card-title-text>
                               <md-card-title-media>
                                 <div class="md-media-lg card-media"></div>
@@ -381,12 +381,12 @@
                               <!-- Buttons -->
                               <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(6)">
-                                    <i class="{{showAction.likeIcon6}}" aria-hidden="true"></i> {{showAction.likeText6}}
+                                    <i class="{{showAction.likeIcon6}}" aria-hidden="true"></i> {{showAction.likeText[6]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(6)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText6}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[6]}}
                                   </button>
                               </div>
                               <div class="more-content">
@@ -402,22 +402,22 @@
                               <img ng-src="assets/paper_img/card.jpg" class="md-card-image" alt="Washed Out">
                               <md-card-title>
                                 <md-card-title-text>
-                                  <span class="md-headline">von ~ {{showMotto.autorMotto7}}</span>
+                                  <span class="md-headline">von ~ {{showMotto.autorMotto[7]}}</span>
                                 </md-card-title-text>
                               </md-card-title>
                               <md-card-content>
-                                  <div class="uiCardFont"> {{showMotto.contentMotto7}} </div>
+                                  <div class="uiCardFont"> {{showMotto.contentMotto[7]}} </div>
                               </md-card-content>
                               <md-card-actions layout="row" layout-align="end center" class="uiCard">
                                 <!-- Buttons -->
                                 <div class="like-content">
                                   <button class="btn-secondary like-review" ng-click="likeFunction(7)">
-                                    <i class="{{showAction.likeIcon7}}" aria-hidden="true"></i> {{showAction.likeText7}}
+                                    <i class="{{showAction.likeIcon7}}" aria-hidden="true"></i> {{showAction.likeText[7]}}
                                   </button>
                               </div>
                               <div class="share-content">
                                   <button class="btn-secondary share-review" ng-click="shareFunction(7)">
-                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText7}}
+                                    <i class="fa fa-share" aria-hidden="true"></i> {{showAction.shareText[7]}}
                                   </button>
                               </div>
                               <div class="more-content">

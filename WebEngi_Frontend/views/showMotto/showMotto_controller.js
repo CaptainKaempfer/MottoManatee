@@ -32,48 +32,13 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
      * @param {index} index 
      */
     $scope.likeFunction = function (index) {
-        switch(index) {
-            case 0:
-                $scope.showAction.likeText[0] = 'Gefällt dir';
-                $scope.showAction.likeIcon[0] = 'fa fa-heart-o';
-                break;
-            case 1: 
-                $scope.showAction.likeText[1] = 'Gefällt dir';
-                $scope.showAction.likeIcon[1] = 'fa fa-heart-o';
-                break;
-            case 2:
-                $scope.showAction.likeText[2] = 'Gefällt dir';
-                $scope.showAction.likeIcon[2] = 'fa fa-heart-o';
-                break;
-            case 3:
-                $scope.showAction.likeText[3] = 'Gefällt dir';
-                $scope.showAction.likeIcon[3] = 'fa fa-heart-o';
-                break;
-            case 4:
-                $scope.showAction.likeText[4] = 'Gefällt dir';
-                $scope.showAction.likeIcon[4] = 'fa fa-heart-o';
-                break;
-            case 5:
-                $scope.showAction.likeText[5] = 'Gefällt dir';
-                $scope.showAction.likeIcon[5] = 'fa fa-heart-o';
-                break;
-            case 6:
-                $scope.showAction.likeText[6] = 'Gefällt dir';
-                $scope.showAction.likeIcon[6] = 'fa fa-heart-o';
-                break;
-            case 7:
-                $scope.showAction.likeText[7] = 'Gefällt dir';
-                $scope.showAction.likeIcon[7] = 'fa fa-heart-o';
-                break;
-            case 8:
-                $scope.showAction.likeText[8] = 'Gefällt dir';
-                $scope.showAction.likeIcon[8] = 'fa fa-heart-o';
-                break;
-            case 9:
-                $scope.showAction.likeText[9] = 'Gefällt dir';
-                $scope.showAction.likeIcon[9] = 'fa fa-heart-o';
-                break;
-        }
+        var req = new XMLHttpRequest();
+	
+        $scope.showAction.likeText[index] = "Gefällt dir";
+        $scope.showAction.likeIcon[index] = "fa fa-heart-o";
+
+        req.open("PATCH", "https://mottomanatee.firebaseio.com/api/mottos/" + $scope.mottoID[index] + "/likes.json", true);
+        req.send('{"' + $scope.user.email + '":true}');
     };
 
     /**
@@ -82,28 +47,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
      */
     $scope.shareFunction = function (index) {
         
-        switch(index) {
-            case 0:
-                $scope.showAction.shareText[0] = 'Geteilt'; break;
-            case 1: 
-                $scope.showAction.shareText[1] = 'Geteilt'; break;
-            case 2:
-                $scope.showAction.shareText[2] = 'Geteilt'; break;
-            case 3:
-                $scope.showAction.shareText[3] = 'Geteilt'; break;
-            case 4:
-                $scope.showAction.shareText[4] = 'Geteilt'; break;
-            case 5:
-                $scope.showAction.shareText[5] = 'Geteilt'; break;
-            case 6:
-                $scope.showAction.shareText[6] = 'Geteilt'; break;
-            case 7:
-                $scope.showAction.shareText[7] = 'Geteilt'; break;
-            case 8:
-                $scope.showAction.shareText[8] = 'Geteilt'; break;
-            case 9:
-                $scope.showAction.shareText[9] = 'Geteilt'; break;
-        }
+            $scope.showAction.shareText[index] = 'Geteilt';
     };
 
     /**
@@ -117,30 +61,9 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 	};
 
     /**
-     * Get the motto content from firebase database
+     * Get the motto content from REST API
      */
     $scope.getMottoContent = function() {
-
-        /*$scope.showMotto.contentMotto[0] = 'bla';
-        $scope.showMotto.autorMotto[0] = 'Unbekannt';
-        $scope.showMotto.contentMotto[1] = 'Der Teufel ist ein Einhörnchen';
-        $scope.showMotto.autorMotto[1] = 'Unbekannt';
-        $scope.showMotto.contentMotto[2] = 'Jeder ist seines Glückes Schmied';
-        $scope.showMotto.autorMotto[2] = 'Unbekannt';
-        $scope.showMotto.contentMotto[3] = 'Habe Mut; dich deines eingenen Verstandes zu bedienen';
-        $scope.showMotto.autorMotto[3] = 'Unbekannt';
-        $scope.showMotto.contentMotto[4] = 'Wer nicht hofft; der wird nie dem Unverhofftem begegnen';
-        $scope.showMotto.autorMotto[4] = 'Unbekannt';
-        $scope.showMotto.contentMotto[5] = 'Alles im Leben hat zwei Seiten. Suche die Beste!';
-        $scope.showMotto.autorMotto[5] = 'Unbekannt';
-        $scope.showMotto.contentMotto[6] = 'Angriff ist die beste Verteidigung';
-        $scope.showMotto.autorMotto[6] = 'Unbekannt';
-        $scope.showMotto.contentMotto[7] = 'Beim Duschen sollte der Duschvorhang immer innen sein!';
-        $scope.showMotto.autorMotto[7] = 'Unbekannt';
-        $scope.showMotto.contentMotto[8] = 'Ende Gut alles Gut';
-        $scope.showMotto.autorMotto[8] = 'Unbekannt';
-        $scope.showMotto.contentMotto[9] = 'Alles hat ein Ende nur die Wurst hat zwei'; 
-        $scope.showMotto.autorMotto[9] = 'Unbekannt';*/
 
 		//get JSON motto data
 		var callback = function(result){ //result is a JSON object with the 11 newest mottos
@@ -150,7 +73,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
 		        autorMotto: ['','','','','','','','','']
             };
 
-            for(i = 0; i<2; i++){
+            for(i = 0; i<10; i++){
                 try{
                 tempData.contentMotto[i] = result[Object.keys(result)[i]].text;
                 tempData.autorMotto[i] = result[Object.keys(result)[i]].user;

@@ -151,6 +151,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			$scope.user.email = root.email;
 			$scope.user.city = root.stadt;
 			$scope.user.country = root.land;
+			$scope.user.username = root.username;
 		}
 		
 		ModalService.openLoginModel(function(){
@@ -162,15 +163,15 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 	 * Queries user specific mottos from the API
 	 */
 	$scope.getUserMottos = function () {
-			getMottoData(email, function f(result){
+			getMottoData($scope.user.username, function f(result){
 			$scope.userMottos = result; // still need to be parsed as needed
 		});		
 		
 	};
 	
-	function getMottoData(email, callback){
+	function getMottoData(user, callback){
 			var req = new XMLHttpRequest();
-			req.open("GET", 'https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="user"&equalTo="' + email + '"', true);
+			req.open("GET", 'https://mottomanatee.firebaseio.com/api/mottos.json?orderBy="user"&equalTo="' + user + '"', true);
 			req.onload = function () {
 				if (req.readyState == 4 && req.status == "200") {
 					var responseObj = JSON.parse(req.responseText); //JSON object erstellen un zurückgeben

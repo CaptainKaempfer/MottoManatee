@@ -114,7 +114,8 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 			"name": $scope.user.lastName,
 			"vorname": $scope.user.firstName,
 			"stadt": $scope.user.city,
-			"email": $scope.user.email
+			"email": $scope.user.email,
+			"username": $scope.user.username
 		};
 		
 		return user;

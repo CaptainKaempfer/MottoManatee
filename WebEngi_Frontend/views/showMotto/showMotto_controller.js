@@ -38,7 +38,7 @@ function ShowCtrl ($rootScope, $scope, $cookies, DataInterchangeService, ModalSe
         $scope.showAction.likeIcon[index] = "fa fa-heart-o";
 
         req.open("PATCH", "https://mottomanatee.firebaseio.com/api/mottos/" + $scope.mottoID[index] + "/likes.json", true);
-        req.send('{"' + $scope.user.email + '":true}');
+        req.send('{"' + $scope.user.username + '":true}');
     };
 
     /**

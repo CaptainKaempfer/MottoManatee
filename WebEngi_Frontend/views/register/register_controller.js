@@ -14,6 +14,7 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 		address: '',
 		city: '',
 		country: '',
+		state: '',
 		postalCode: '',
 		password: ''
 	};
@@ -110,7 +111,7 @@ function RegisterCtrl ($rootScope, $scope, $cookies, DataInterchangeService, Mod
 	
 	function createJSONUser(){
 		var user = {
-			"land": $scope.user.country,
+			"land": $scope.user.state,
 			"name": $scope.user.lastName,
 			"vorname": $scope.user.firstName,
 			"stadt": $scope.user.city,

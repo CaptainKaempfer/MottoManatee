@@ -12,6 +12,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 		address: '',
 		city: '',
 		country: '',
+		state: '',
 		postalCode: '',
 		password: ''
 	};
@@ -37,7 +38,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			"title": user.title,
 			"timestamp": {".sv": "timestamp"},
             "user": user.username,
-            "land": user.country
+            "land": user.state
 		};
 		
         var jsonString = JSON.stringify($scope.Motto);
@@ -150,7 +151,7 @@ function MainCtrl ($rootScope, $scope, $cookies, $location, DataInterchangeServi
 			$scope.user.lastName = root.name;
 			$scope.user.email = root.email;
 			$scope.user.city = root.stadt;
-			$scope.user.country = root.land;
+			$scope.user.state = root.land;
 			$scope.user.username = root.username;
 		}
 		
